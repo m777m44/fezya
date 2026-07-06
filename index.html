@@ -97,11 +97,11 @@
                 <!-- Quick Statistics Grid -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
                     <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-2xl">
-                        <span class="block text-3xl font-bold text-blue-500 mb-1">9</span>
+                        <span class="block text-3xl font-bold text-blue-500 mb-1">8</span>
                         <span class="text-xs text-slate-400">فصول فيزيائية كاملة</span>
                     </div>
                     <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-2xl">
-                        <span class="block text-3xl font-bold text-emerald-500 mb-1">+150</span>
+                        <span class="block text-3xl font-bold text-emerald-500 mb-1">+140</span>
                         <span class="text-xs text-slate-400">قانون رياضي مفصل</span>
                     </div>
                     <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-2xl">
@@ -126,7 +126,7 @@
             <p class="text-slate-400 max-w-2xl mx-auto">اضغط على أي فصل من الفصول التالية لتفتح لك بوابته الخاصة المزودة بالصيغ والرموز والملاحظات الذهبية للحلول.</p>
         </div>
 
-        <!-- Chapters Grid -->
+        <!-- Chapters Grid (8 Chapters - Nuclear Deleted) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <!-- Chapter 1 Card -->
@@ -281,25 +281,6 @@
                 </div>
             </div>
 
-            <!-- Chapter 9 Card (Nuclear Physics) -->
-            <div onclick="openModal('nuclear')" class="bg-slate-800/40 hover:bg-slate-800/70 border border-slate-800 hover:border-red-500/50 rounded-3xl p-6 cursor-pointer glow-effect relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-red-500/5 rounded-bl-full pointer-events-none transition-all group-hover:bg-red-500/10"></div>
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-12 h-12 rounded-2xl bg-red-500/10 text-red-400 flex items-center justify-center text-xl font-bold">
-                        ٩
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white group-hover:text-red-400 transition-colors">الفصل التاسع: الفيزياء النووية</h3>
-                        <p class="text-xs text-slate-400">طاقة الربط والكتلة النووية</p>
-                    </div>
-                </div>
-                <p class="text-sm text-slate-300 mb-4 line-clamp-2">قوانين نصف قطر النواة، حجم النواة، شحنة النواة، النقص الكتلي، وطاقة الربط النووية (Eb).</p>
-                <div class="flex items-center justify-between text-xs text-slate-400">
-                    <span><i class="fas fa-list-ol mr-1"></i> 6 قوانين نووية</span>
-                    <span class="text-red-500 font-bold group-hover:underline">عرض القوانين <i class="fas fa-chevron-left text-xs ml-1"></i></span>
-                </div>
-            </div>
-
         </div>
     </main>
 
@@ -315,7 +296,7 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Tool 1: Capicitance Calculator (Fixed & Interactive) -->
+                <!-- Tool 1: Capicitance Calculator -->
                 <div class="bg-slate-800/50 border border-slate-700/50 rounded-3xl p-6">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
@@ -1007,69 +988,6 @@
                     "<strong>ملاحظة نسبية هامة:</strong> في المسائل الرياضية، تعطى السرعة غالباً ككسر من سرعة الضوء، مثلاً \\(v = 0.6c\\) أو \\(v = 0.8c\\). في هذه الحالة، يسهل حساب الكسر \\(\\frac{v^2}{c^2}\\) مباشرة كـ \\(0.36\\) أو \\(0.64\\) دون الحاجة لتعويض قيمة سرعة الضوء \\(3 \\times 10^8\\).",
                     "<strong>تطبيق سريع:</strong> إذا كانت \\(v = 0.6c\\)، فإن معامل لورنتز \\(\\gamma = \\frac{1}{\\sqrt{1-0.36}} = \\frac{1}{\\sqrt{0.64}} = \\frac{1}{0.8} = 1.25\\)."
                 ]
-            },
-            nuclear: {
-                title: "الفصل التاسع: الفيزياء النووية (Nuclear Physics)",
-                badge: "٩",
-                color: "red",
-                formulas: [
-                    {
-                        name: "شحنة النواة الكهربائية (Nuclear Charge)",
-                        latex: "q = Z \\cdot e",
-                        desc: "شحنة النواة الكلية تساوي حاصل ضرب العدد الذري (عدد البروتونات) في شحنة البروتون الموجبة.",
-                        units: [
-                            "\\(q\\): شحنة النواة بالكولوم",
-                            "\\(Z\\): العدد الذري للنواة (عدد البروتونات)",
-                            "\\(e\\): شحنة البروتون أو الإلكترون وثابتها \\(1.6 \\times 10^{-19} \\text{ C}\\)"
-                        ]
-                    },
-                    {
-                        name: "نصف قطر النواة المقدر بالمتر والفيرمي",
-                        latex: "R = R_0 \\cdot A^{1/3}",
-                        desc: "نصف قطر النواة يتناسب طردياً مع الجذر التكعيبي للعدد الكتلي \\(A\\).",
-                        units: [
-                            "\\(R_0\\): ثابت نصف القطر النووي ويساوي \\(1.2 \\times 10^{-15} \\text{ m}\\) (بالمتر) أو \\(1.2 \\text{ F}\\) (بالفيرمي)",
-                            "\\(A\\): العدد الكتلي للنواة (البروتونات + النيوترونات)",
-                            "ملاحظة: الفيرمي (\\(F\\)) هو وحدة قياس نووية وتساوي \\(10^{-15} \\text{ m}\\)."
-                        ]
-                    },
-                    {
-                        name: "حجم النواة التقريبي (Volume)",
-                        latex: "V = \\frac{4}{3} \\pi R^3 = \\frac{4}{3} \\pi R_0^3 \\cdot A",
-                        desc: "باعتبار النواة كرة مصمتة تقريباً، فإن حجمها يتناسب طردياً مع العدد الكتلي للنواة \\(A\\).",
-                        units: []
-                    },
-                    {
-                        name: "النقص الكتلي في النواة (Mass Defect)",
-                        latex: "\\Delta m = (Z \\cdot m_H + N \\cdot m_n) - M",
-                        desc: "الفرق بين مجموع كتل مكونات النواة وهي منفردة وكتلة النواة الفعلية المترابطة.",
-                        units: [
-                            "\\(m_H\\): كتلة ذرة الهيدروجين (البروتون) بوحدة الكتل الذرية (\\(u\\))",
-                            "\\(m_n\\): كتلة النيوترون بوحدة الكتل الذرية",
-                            "\\(M\\): الكتلة الفعلية للنواة المعطاة في السؤال بوحدة الكتل الذرية (\\(u\\))",
-                            "\\(N = A - Z\\): عدد النيوترونات في النواة"
-                        ]
-                    },
-                    {
-                        name: "طاقة الربط النووية (Nuclear Binding Energy - Eb)",
-                        latex: "E_b = \\Delta m \\cdot 931 \\text{ MeV}",
-                        desc: "الطاقة المكافئة للنقص الكتلي طبقاً لمعادلة أينشتاين، وهي الطاقة اللازمة لتفكيك النواة إلى مكوناتها الأساسية.",
-                        units: [
-                            "\\(E_b\\): طاقة الربط النووية بوحدة مليون إلكترون فولت (\\(MeV\\))",
-                            "ملاحظة: الثابت 931 يمثل الطاقة المكافئة لوحدة الكتل الذرية الواحدة (\\(1 u = 931 \\text{ MeV}\\))"
-                        ]
-                    },
-                    {
-                        name: "معدل طاقة الربط النووية لكل نيوكليون",
-                        latex: "E_{b/A} = \\frac{E_b}{A}",
-                        desc: "مقياس لمدى استقرار النواة؛ فكلما زاد معدل طاقة الربط لكل نيوكليون، كانت النواة أكثر استقراراً تقع في منتصف جدول العناصر.",
-                        units: []
-                    }
-                ],
-                notes: [
-                    "<strong>ملاحظة ذهبية لحساب طاقة الربط النووية Eb:</strong><br>1.  احسب عدد النيوترونات أولاً: \\(N = A - Z\\).<br>2. طبق قانون النقص الكتلي بدقة تامة لعدد المراتب العشرية المعطاة بالسؤال (غالباً 5 مراتب بعد الفارزة). لا تقم بتقريب الأرقام أبداً لأن الفروق الكتلية النووية صغيرة جداً وحسازة.<br>3. اضرب الناتج النهائي للنقص الكتلي \\(\\Delta m\\) في الثابت \\(931\\) لتحصل على الطاقة بالـ \\(MeV\\).",
-                    "<strong>ملاحظة تحويل الطاقة النووية:</strong> للتحويل من مليون إلكترون فولت (\\(MeV\\)) إلى جول (\\(J\\)): نضرب في \\(1.6 \\times 10^{-13}\\)."
-                ]
             }
         };
 
@@ -1170,8 +1088,6 @@
             if (tab === 'formulas') {
                 btnFormulas.className = `px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-${activeColor}-600 text-white transition-all`;
                 btnNotes.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:text-white transition-all";
-                tabFormulas.classList.remove('hidden');
-                tabFormulas.classList.add('hidden');
                 tabFormulas.classList.remove('hidden');
                 tabNotes.classList.add('hidden');
             } else {
