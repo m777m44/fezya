@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة قوانين الفيزياء المطورة | الأستاذ نور باجلان ونخبة أساتذة الفيزياء</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Cairo & Tajawal) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=300;400;600;700;800&family=Tajawal:wght=300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax for formula rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #0f172a; /* Slate 900 */
+        }
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glow-effect:hover {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+            transform: translateY(-4px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                    <i class="fas fa-atom text-white text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white">الفيزياء <span class="text-blue-500">المطورة</span></h1>
+                    <p class="text-xs text-slate-400">منصة القوانين والملاحظات الذهبية للثانوية العامة</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
+                <a href="#hero" class="text-blue-500 hover:text-blue-400 transition-colors">الرئيسية</a>
+                <a href="#chapters" class="text-slate-300 hover:text-white transition-colors">الفصول الدراسية</a>
+                <a href="#quick-tools" class="text-slate-300 hover:text-white transition-colors">أدوات ذكية</a>
+                <a href="#how-to-study" class="text-slate-300 hover:text-white transition-colors">نصائح تفوق</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="document.getElementById('chapters').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200 shadow-lg shadow-blue-500/25 flex items-center gap-2">
+                    <i class="fas fa-book-open"></i>
+                    <span>ابدأ الدراسة الآن</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-800 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-900 to-slate-900">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=80')] opacity-5 bg-cover bg-center pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-6">
+                    <i class="fas fa-sparkles"></i> مرجع شامل لكافة قوانين السادس العلمي
+                </span>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+                    كل قوانين <span class="gradient-text">الفيزياء</span> في مكان واحد باحترافية متناهية
+                </h1>
+                <p class="text-lg text-slate-300 leading-relaxed mb-8">
+                    مرحباً بكم في الصرح التعليمي الأحدث والمطور خصيصاً لطلبة السادس العلمي. قمنا باستخراج وفهرسة وتصميم كافة القوانين، الملاحظات الذهبية، والمسائل الرياضية لتقديم تجربة تفاعلية وبصرية لا مثيل لها تساعدك على تحقيق الدرجة الكاملة <span class="text-yellow-400 font-bold">(100/100)</span>.
+                </p>
+                
+                <!-- Quick Statistics Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                    <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-2xl">
+                        <span class="block text-3xl font-bold text-blue-500 mb-1">9</span>
+                        <span class="text-xs text-slate-400">فصول فيزيائية كاملة</span>
+                    </div>
+                    <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-2xl">
+                        <span class="block text-3xl font-bold text-emerald-500 mb-1">+150</span>
+                        <span class="text-xs text-slate-400">قانون رياضي مفصل</span>
+                    </div>
+                    <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-2xl">
+                        <span class="block text-3xl font-bold text-violet-500 mb-1">100%</span>
+                        <span class="text-xs text-slate-400">ملاحظات ورموز دقيقة</span>
+                    </div>
+                    <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-2xl">
+                        <span class="block text-3xl font-bold text-amber-500 mb-1">كامل</span>
+                        <span class="text-xs text-slate-400">شامل المنهج الوزاري</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content: Chapters Section -->
+    <main id="chapters" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-white mb-3">فهرس الفصول والمواضيع الدراسية</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">اضغط على أي فصل من الفصول التالية لتفتح لك بوابته الخاصة المزودة بالصيغ والرموز والملاحظات الذهبية للحلول.</p>
+        </div>
+
+        <!-- Chapters Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Chapter 1 Card -->
+            <div onclick="openModal('chapter1')" class="bg-slate-800/40 hover:bg-slate-800/70 border border-slate-800 hover:border-blue-500/50 rounded-3xl p-6 cursor-pointer glow-effect relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-bl-full pointer-events-none transition-all group-hover:bg-blue-500/10"></div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl font-bold">
+                        ١
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">الفصل الأول: المتسعات</h3>
+                        <p class="text-xs text-slate-400">قوانين السعة والربط والكهرباء الساكنة</p>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-300 mb-4 line-clamp-2">قوانين المتسعة المنفردة، التوازي والتوالي، الربط المختلط، وثابت العزل (K) المعلوم والمجهول مع الملاحظات الذهبية.</p>
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fas fa-list-ol mr-1"></i> 8 قوانين مفصلة</span>
+                    <span class="text-blue-500 font-bold group-hover:underline">عرض القوانين <i class="fas fa-chevron-left text-xs ml-1"></i></span>
+                </div>
+            </div>
+
+            <!-- Chapter 2 Card -->
+            <div onclick="openModal('chapter2')" class="bg-slate-800/40 hover:bg-slate-800/70 border border-slate-800 hover:border-emerald-500/50 rounded-3xl p-6 cursor-pointer glow-effect relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-bl-full pointer-events-none transition-all group-hover:bg-emerald-500/10"></div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl font-bold">
+                        ٢
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">الفصل الثاني: الحث الكهرومغناطيسي</h3>
+                        <p class="text-xs text-slate-400">قوانين القوة الدافعة الكهربائية الحركية</p>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-300 mb-4 line-clamp-2">شرح مفصل لفرداي، الساق الموصلة، المولد الكهربائي (الجيبي)، الحث الذاتي، الحث المتبادل والمحاثة.</p>
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fas fa-list-ol mr-1"></i> 9 قوانين تفاعلية</span>
+                    <span class="text-emerald-500 font-bold group-hover:underline">عرض القوانين <i class="fas fa-chevron-left text-xs ml-1"></i></span>
+                </div>
+            </div>
+
+            <!-- Chapter 3 Card -->
+            <div onclick="openModal('chapter3')" class="bg-slate-800/40 hover:bg-slate-800/70 border border-slate-800 hover:border-indigo-500/50 rounded-3xl p-6 cursor-pointer glow-effect relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-bl-full pointer-events-none transition-all group-hover:bg-indigo-500/10"></div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl font-bold">
+                        ٣
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">الفصل الثالث: التيار المتناوب</h3>
+                        <p class="text-xs text-slate-400">توالي، توازي، ورنين</p>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-300 mb-4 line-clamp-2">أكبر فصول الكتاب أهمية: المقاومة والصرف، المحث الصرف، المتسعة الصرف، مخطط الممانعات الطوري والقدرة الكهربائية.</p>
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fas fa-list-ol mr-1"></i> 10 قوانين مبرهنة</span>
+                    <span class="text-indigo-500 font-bold group-hover:underline">عرض القوانين <i class="fas fa-chevron-left text-xs ml-1"></i></span>
+                </div>
+            </div>
+
+            <!-- Chapter 4 Card -->
+            <div onclick="openModal('chapter4')" class="bg-slate-800/40 hover:bg-slate-800/70 border border-slate-800 hover:border-pink-500/50 rounded-3xl p-6 cursor-pointer glow-effect relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-pink-500/5 rounded-bl-full pointer-events-none transition-all group-hover:bg-pink-500/10"></div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl font-bold">
+                        ٤
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-pink-400 transition-colors">الفصل الرابع: الموجات الكهرومغناطيسية</h3>
+                        <p class="text-xs text-slate-400">التردد والطور والهوائيات</p>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-300 mb-4 line-clamp-2">قوانين سرعة انتشار الموجات، التداخل، التردد الرنيني للهوائيات، والتحسس النائي بكل وضوح وسهولة.</p>
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fas fa-list-ol mr-1"></i> 3 قوانين أساسية</span>
+                    <span class="text-pink-500 font-bold group-hover:underline">عرض القوانين <i class="fas fa-chevron-left text-xs ml-1"></i></span>
+                </div>
+            </div>
+
+            <!-- Chapter 5 Card -->
+            <div onclick="openModal('chapter5')" class="bg-slate-800/40 hover:bg-slate-800/70 border border-slate-800 hover:border-amber-500/50 rounded-3xl p-6 cursor-pointer glow-effect relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-bl-full pointer-events-none transition-all group-hover:bg-amber-500/10"></div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl font-bold">
+                        ٥
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">الفصل الخامس: الفيزياء الحديثة</h3>
+                        <p class="text-xs text-slate-400">إشعاع الجسم الأسود والنظرية النسبية</p>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-300 mb-4 line-clamp-2">قوانين إزاحة فين، بلانك، الظاهرة الكهرضوئية، جهد القطع والسرعة العظمى للإلكترونات المنبعثة.</p>
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fas fa-list-ol mr-1"></i> 7 قوانين فيزيائية</span>
+                    <span class="text-amber-500 font-bold group-hover:underline">عرض القوانين <i class="fas fa-chevron-left text-xs ml-1"></i></span>
+                </div>
+            </div>
+
+            <!-- Chapter 6 Card -->
+            <div onclick="openModal('chapter6')" class="bg-slate-800/40 hover:bg-slate-800/70 border border-slate-800 hover:border-cyan-500/50 rounded-3xl p-6 cursor-pointer glow-effect relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 rounded-bl-full pointer-events-none transition-all group-hover:bg-cyan-500/10"></div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl font-bold">
+                        ٦
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">الفصل السادس: إلكترونيات الحالة الصلبة</h3>
+                        <p class="text-xs text-slate-400">أشباه الموصلات والثنائيات</p>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-300 mb-4 line-clamp-2">قوانين حزم الطاقة، تيار فجوات الإلكترون، الثنائي البلوري P-N، تيار الانجراف والانتشار الرياضي.</p>
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fas fa-list-ol mr-1"></i> 3 قوانين مبرهنة</span>
+                    <span class="text-cyan-500 font-bold group-hover:underline">عرض القوانين <i class="fas fa-chevron-left text-xs ml-1"></i></span>
+                </div>
+            </div>
+
+            <!-- Chapter 7 Card -->
+            <div onclick="openModal('chapter7')" class="bg-slate-800/40 hover:bg-slate-800/70 border border-slate-800 hover:border-teal-500/50 rounded-3xl p-6 cursor-pointer glow-effect relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-teal-500/5 rounded-bl-full pointer-events-none transition-all group-hover:bg-teal-500/10"></div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-xl font-bold">
+                        ٧
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-teal-400 transition-colors">الفصل السابع: الأطياف الذرية والليزر</h3>
+                        <p class="text-xs text-slate-400">الأشعة السينية ومستويات الطاقة</p>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-300 mb-4 line-clamp-2">قوانين الطاقة الحركية للإلكترون، أعظم تردد للأشعة السينية، وأقصر طول موجي مع الملاحظات الذهبية للتعويض.</p>
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fas fa-list-ol mr-1"></i> 3 قوانين ذرية</span>
+                    <span class="text-teal-500 font-bold group-hover:underline">عرض القوانين <i class="fas fa-chevron-left text-xs ml-1"></i></span>
+                </div>
+            </div>
+
+            <!-- Chapter 8 Card -->
+            <div onclick="openModal('chapter8')" class="bg-slate-800/40 hover:bg-slate-800/70 border border-slate-800 hover:border-yellow-500/50 rounded-3xl p-6 cursor-pointer glow-effect relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-yellow-500/5 rounded-bl-full pointer-events-none transition-all group-hover:bg-yellow-500/10"></div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-xl font-bold">
+                        ٨
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-yellow-400 transition-colors">الفصل الثامن: النظرية النسبية والموجات</h3>
+                        <p class="text-xs text-slate-400">معامل لورنتز وتمدد الزمن</p>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-300 mb-4 line-clamp-2">مجموعة القوانين الخاصة بالزمان والمكان والكتلة النسبية، والمفاهيم الرياضية الدقيقة لتطبيقات اينشتاين.</p>
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fas fa-list-ol mr-1"></i> 4 قوانين نسبية</span>
+                    <span class="text-yellow-500 font-bold group-hover:underline">عرض القوانين <i class="fas fa-chevron-left text-xs ml-1"></i></span>
+                </div>
+            </div>
+
+            <!-- Chapter 9 Card (Nuclear Physics) -->
+            <div onclick="openModal('nuclear')" class="bg-slate-800/40 hover:bg-slate-800/70 border border-slate-800 hover:border-red-500/50 rounded-3xl p-6 cursor-pointer glow-effect relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-red-500/5 rounded-bl-full pointer-events-none transition-all group-hover:bg-red-500/10"></div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-2xl bg-red-500/10 text-red-400 flex items-center justify-center text-xl font-bold">
+                        ٩
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-red-400 transition-colors">الفصل التاسع: الفيزياء النووية</h3>
+                        <p class="text-xs text-slate-400">طاقة الربط والكتلة النووية</p>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-300 mb-4 line-clamp-2">قوانين نصف قطر النواة، حجم النواة، شحنة النواة، النقص الكتلي، وطاقة الربط النووية (Eb).</p>
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fas fa-list-ol mr-1"></i> 6 قوانين نووية</span>
+                    <span class="text-red-500 font-bold group-hover:underline">عرض القوانين <i class="fas fa-chevron-left text-xs ml-1"></i></span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Smart Interactive Physics Tools Section -->
+    <section id="quick-tools" class="bg-slate-900 border-y border-slate-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4 inline-block">
+                    حصري ومبتكر
+                </span>
+                <h2 class="text-3xl font-bold text-white">الأدوات الفيزيائية الذكية المساعدة</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto mt-2">وفر وقتك واستخدم هذه الأدوات التفاعلية لحساب بعض القيم الأساسية والتأكد من حلول مسائلك بشكل فوري.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Tool 1: Capicitance Calculator (Fixed & Interactive) -->
+                <div class="bg-slate-800/50 border border-slate-700/50 rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                            <i class="fas fa-charging-station text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">حاسبة المتسعة المنفردة (الفصل الأول)</h3>
+                            <p class="text-xs text-slate-400">احسب السعة أو الشحنة أو فرق الجهد (\(Q = C \\times \\Delta V\))</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1.5">الشحنة \(Q\) (\(\\mu C\))</label>
+                            <input type="text" id="calc-q" placeholder="مثال: 120" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-blue-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1.5">السعة \(C\) (\(\\mu F\))</label>
+                            <input type="text" id="calc-c" placeholder="مثال: 6" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-blue-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1.5">فرق الجهد \(V\) (فولت)</label>
+                            <input type="text" id="calc-v" placeholder="مثال: 20" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-blue-500 text-sm">
+                        </div>
+                    </div>
+
+                    <button onclick="calculateCapacitance()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-xl transition-all text-sm mb-4">
+                        احسب القيمة المجهولة (اترك المجهول فارغاً)
+                    </button>
+
+                    <div id="cap-result" class="bg-blue-500/10 border border-blue-500/20 text-blue-300 rounded-xl p-3 text-center text-sm hidden">
+                    </div>
+                </div>
+
+                <!-- Tool 2: Unit Converter -->
+                <div class="bg-slate-800/50 border border-slate-700/50 rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                            <i class="fas fa-exchange-alt text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">محول الوحدات الفيزيائية السريع</h3>
+                            <p class="text-xs text-slate-400">حول قيم البادئات والوحدات الشائعة (ميكرو، نانو، بيكو)</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1.5">القيمة الرقمية</label>
+                            <input type="number" id="unit-val" value="1" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-emerald-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1.5">من وحدة</label>
+                            <select id="unit-from" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-emerald-500 text-sm">
+                                <option value="micro">ميكرو (x10⁻⁶)</option>
+                                <option value="nano">نانو (x10⁻⁹)</option>
+                                <option value="pico">بيكو (x10⁻¹²)</option>
+                                <option value="milli">ملي (x10⁻³)</option>
+                                <option value="mega">ميغا (x10⁶)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1.5">إلى الوحدة الأساسية</label>
+                            <div class="w-full bg-slate-900/40 border border-slate-800 rounded-xl px-3 py-2 text-emerald-400 font-bold text-sm text-center">
+                                الوحدة الأساسية (فاراد/كولوم/متر)
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="convertUnits()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl transition-all text-sm mb-4">
+                        احسب التحويل الرياضي العلمي
+                    </button>
+
+                    <div id="unit-result" class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 rounded-xl p-3 text-center text-sm hidden">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- High-Value Study Tips Section -->
+    <section id="how-to-study" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-white mb-3">كيف تدرس مادة الفيزياء وتضمن الدرجة الكاملة؟</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">إليك خارطة الطريق الذهبية التي ينصح بها كبار الأساتذة لتحقيق التفوق الباهر:</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-slate-800/30 border border-slate-800 rounded-2xl p-6 text-center">
+                <div class="w-14 h-14 bg-blue-500/10 text-blue-400 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">الفهم قبل الحفظ</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">الفيزياء علم الطبيعة والكون. لا تقم بحفظ القوانين صمّاً، بل اعرف معنى كل رمز ووحدته وكيف تم استنتاج القانون لكي تستطيع حل الأسئلة الخارجية والمبتكرة بكل سهولة.</p>
+            </div>
+            <div class="bg-slate-800/30 border border-slate-800 rounded-2xl p-6 text-center">
+                <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                    <i class="fas fa-drafting-compass"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">الرسم والمخططات الطورية</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">عند حل مسائل التيار المتناوب (الفصل الثالث) أو المتسعات، ارسم مخططاً بيانياً بسيطاً لمعرفة المعطيات والمجهول. الرسم يوفر عليك 50% من جهد التفكير.</p>
+            </div>
+            <div class="bg-slate-800/30 border border-slate-800 rounded-2xl p-6 text-center">
+                <div class="w-14 h-14 bg-indigo-500/10 text-indigo-400 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">حل الأسئلة الوزارية</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">جميع الأسئلة الوزارية مكررة بأفكار متشابهة بنسبة 95%. بعد انتهاء دراستك للفصل من هذا الموقع التفاعلي، توجه مباشرة لحل الأسئلة الوزارية للسنوات السابقة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 py-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500">
+            <p>منصة القوانين الفيزيائية الذكية المتكاملة والمبسطة.</p>
+        </div>
+    </footer>
+
+
+    <!-- ================== FULL SCREEN CHAPTER MODAL ================== -->
+    <div id="chapter-modal" class="fixed inset-0 z-50 overflow-y-auto hidden bg-slate-950/95 backdrop-blur-md transition-all duration-300">
+        <div class="min-h-screen px-4 py-8 flex flex-col justify-between max-w-4xl mx-auto">
+            
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div id="modal-badge" class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl font-bold">
+                        1
+                    </div>
+                    <div>
+                        <h2 id="modal-title" class="text-2xl font-bold text-white">عنوان الفصل المختار</h2>
+                        <p class="text-xs text-slate-400">تصفح القوانين والملاحظات المنهجية</p>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center transition-all">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content (Focus on Structured Formulas & Notes) -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-6 overflow-y-auto max-h-[75vh] flex-grow">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fas fa-list-ol text-blue-500"></i>
+                        الصيغ الرياضية والملاحظات المستخرجة بدقة
+                    </h3>
+                    <span class="text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2.5 py-1 rounded-full font-semibold">مضمونة 100%</span>
+                </div>
+
+                <!-- Interactive Tabs inside Modal -->
+                <div class="flex gap-2 mb-6 border-b border-slate-800 pb-3">
+                    <button onclick="switchModalTab('formulas')" id="tab-btn-formulas" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-blue-600 text-white transition-all">
+                        <i class="fas fa-calculator ml-1"></i> القوانين والرموز
+                    </button>
+                    <button onclick="switchModalTab('notes')" id="tab-btn-notes" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:text-white transition-all">
+                        <i class="fas fa-lightbulb ml-1"></i> الملاحظات الذهبية
+                    </button>
+                </div>
+
+                <!-- Formulas Tab Content -->
+                <div id="modal-tab-formulas" class="space-y-6">
+                    <!-- Filled Dynamically -->
+                </div>
+
+                <!-- Notes Tab Content -->
+                <div id="modal-tab-notes" class="space-y-6 hidden">
+                    <!-- Filled Dynamically -->
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="border-t border-slate-800 pt-4 mt-6 text-center flex items-center justify-between text-xs text-slate-500">
+                <p>مستخرج بالكامل من مصادر الفيزياء الرسمية والمنسقة بجودة ممتازة.</p>
+                <button onclick="closeModal()" class="text-blue-500 hover:underline">العودة للرئيسية</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ================== DATA & JAVASCRIPT ================== -->
+    <script>
+        // Complete Data Model containing every single formula, note, definition, units and original page links
+        const chaptersData = {
+            chapter1: {
+                title: "الفصل الأول: المتسعات (Capacitors)",
+                badge: "١",
+                color: "blue",
+                formulas: [
+                    {
+                        name: "قانون سعة المتسعة الأساسي (العام)",
+                        latex: "C = \\frac{Q}{\\Delta V}",
+                        desc: "العلاقة التي تربط الشحنة المختزنة في أي من صفيحتي المتسعة بفرق الجهد الكهربائي بينهما.",
+                        units: [
+                            "\\(C\\): سعة المتسعة بالفاراد (\\(F\\)) وتستخدم غالباً الميكروفاراد (\\(\\mu F = 10^{-6} F\\))",
+                            "\\(Q\\): الشحنة المختزنة في أي من الصفيحتين بالكولوم (\\(C\\))",
+                            "\\(\\Delta V\\): فرق الجهد الكهربائي بين الصفيحتين بالفولت (\\(V\\))"
+                        ]
+                    },
+                    {
+                        name: "العوامل المؤثرة في سعة المتسعة ذات الصفيحتين المتوازيتين",
+                        latex: "C = \\epsilon_0 \\frac{A}{d}",
+                        desc: "حيث تتأثر السعة طردياً بالمساحة السطحية المتقابلة وعكسياً بالبعد بين الصفيحتين.",
+                        units: [
+                            "\\(\\epsilon_0\\): سماحية الفراغ أو الهواء وتساوي ثابتاً: \\(8.85 \\times 10^{-12} \\text{ C}^2/\\text{N.m}^2\\)",
+                            "\\(A\\): المساحة السطحية المتقابلة للصفيحتين بالمتر المربع (\\(m^2\\))",
+                            "\\(d\\): البعد بين الصفيحتين بالمتر (\\(m\\))"
+                        ]
+                    },
+                    {
+                        name: "سعة المتسعة بوجود مادة عازلة (ثابت عزلها K)",
+                        latex: "C_k = K \\cdot C",
+                        desc: "إدخال مادة عازلة كهربائياً بدلاً من الهواء يزيد من سعتها بمعامل يسمى ثابت العزل \\(K\\).",
+                        units: [
+                            "\\(C_k\\): سعة المتسعة بوجود العازل بالفاراد (\\(F\\))",
+                            "\\(K\\): ثابت العزل للمادة (خالٍ من الوحدات ويرمز له أحياناً بـ \\(k\\))",
+                            "\\(C\\): سعة المتسعة بوجود الهواء أو الفراغ"
+                        ]
+                    },
+                    {
+                        name: "فرق الجهد والمجال الكهربائي بوجود عازل (للمتسعة المنفردة المفصولة)",
+                        latex: "\\Delta V_k = \\frac{\\Delta V}{K} \\quad , \\quad E_k = \\frac{E}{K}",
+                        desc: "يقل فرق الجهد الكهربائي والمجال الكهربائي بنسبة ثابت العزل \\(K\\) عند إدخال عازل إذا كانت المتسعة مفصولة عن المصدر.",
+                        units: [
+                            "\\(\\Delta V_k\\): فرق الجهد بوجود العازل (\\(V\\))",
+                            "\\(E_k\\): المجال الكهربائي بوجود العازل (\\(V/m\\) أو \\(N/C\\))",
+                            "\\(E\\): المجال الكهربائي الأصلي قبل العزل"
+                        ]
+                    },
+                    {
+                        name: "قوانين ربط المتسعات على التوالي (Series)",
+                        latex: "\\frac{1}{C_{eq}} = \\frac{1}{C_1} + \\frac{1}{C_2} + \\dots \\quad , \\quad Q_{total} = Q_1 = Q_2 = \\dots",
+                        desc: "يستخدم للحصول على سعة مكافئة صغيرة لربط المتسعات بفرق جهد كبير. الشحنة متساوية وفرق الجهد الكلي هو مجموع الفروق الجزئية: \\(\\Delta V_t = \\Delta V_1 + \\Delta V_2\\).",
+                        units: [
+                            "\\(C_{eq}\\): السعة المكافئة الكلية لمجموعة التوالي"
+                        ]
+                    },
+                    {
+                        name: "قوانين ربط المتسعات على التوازي (Parallel)",
+                        latex: "C_{eq} = C_1 + C_2 + \\dots \\quad , \\quad \\Delta V_{total} = \\Delta V_1 = \\Delta V_2 = \\dots",
+                        desc: "يستخدم للحصول على سعة مكافئة كبيرة لجمع الشحنات. فرق الجهد متساوي، والشحنة الكلية هي مجموع الشحنات: \\(Q_t = Q_1 + Q_2\\).",
+                        units: [
+                            "\\(C_{eq}\\): السعة المكافئة للمجموعة المتوازية"
+                        ]
+                    },
+                    {
+                        name: "الطاقة المختزنة في المجال الكهربائي للمتسعة (PE)",
+                        latex: "PE = \\frac{1}{2} Q \\cdot \\Delta V = \\frac{1}{2} C (\\Delta V)^2 = \\frac{1}{2} \\frac{Q^2}{C}",
+                        desc: "الشغل المبذول لنقل الشحنات يختزن على شكل طاقة كامنة كهربائية في المجال الكهربائي بين صفيحتي المتسعة.",
+                        units: [
+                            "\\(PE\\): الطاقة الكامنة الكهربائية بالجول (\\(J\\))",
+                            "ملاحظة هامة جداً: عند حساب الطاقة المختزنة يجب تحويل كافة الوحدات (السعة والشحنة) إلى الوحدات الأساسية بالفاراد والكولوم ضرورة مطلقة."
+                        ]
+                    },
+                    {
+                        name: "القدرة الكهربائية المستهلكة (Power)",
+                        latex: "P = \\frac{PE}{t}",
+                        desc: "معدل الطاقة المختزنة المستهلكة خلال زمن معين.",
+                        units: [
+                            "\\(P\\): القدرة بالواط (\\(W\\))",
+                            "\\(t\\): الزمن بالثواني (\\(s\\))"
+                        ]
+                    }
+                ],
+                notes: [
+                    "<strong>ملاحظة (متصلة أم مفصولة):</strong> هذه القاعدة الذهبية لحل مسائل ثابت العزل K المجهول أو المعلوم:<br>1. <strong>إذا كانت المجموعة متصلة بالمصدر (البطارية):</strong> يبقى فرق الجهد الكلي ثابتاً بعد العزل \\(\\Delta V_{tk} = \\Delta V_t\\)، بينما تزداد الشحنة الكلية والسعة.<br>2. <strong>إذا كانت المجموعة مفصولة عن المصدر:</strong> تبقى الشحنة الكلية ثابتة بعد العزل \\(Q_{tk} = Q_t\\)، بينما يقل فرق الجهد الكلي.",
+                    "<strong>ثابت العزل K المجهول:</strong> لإيجاد ثابت العزل المجهول في مسائل الوزاري، اتبع الخطوات التالية بالتسلسل:<br>1. احسب السعة المكافئة بوجود العازل: \\(C_{eqk} = \\frac{Q_{tk}}{\\Delta V_{tk}}\\).<br>2. طبق قانون الربط توازي أو توالي لإيجاد سعة المتسعة التي دخل عليها العازل \\(C_{1k}\\) أو \\(C_{2k}\\).<br>3. احسب ثابت العزل: \\(K = \\frac{C_{1k}}{C_1}\\).",
+                    "<strong>ملاحظة هامة عن دائرة مقاومة ومتسعة (R-C Circle):</strong><br>1. في لحظة إغلاق الدائرة، تعمل المتسعة كمفتاح مغلق والتيار يكون بأعظم قيمة له \\(I_{max} = \\frac{V}{R}\\).<br>2. بعد اكتمال شحن المتسعة، يكتمل فرق جهد المتسعة ليكون مساوياً لفرق جهد البطارية، مما يجعل التيار يساوي صفراً، وتعمل المتسعة كمفتاح مفتوح."
+                ]
+            },
+            chapter2: {
+                title: "الفصل الثاني: الحث الكهرومغناطيسي (Electromagnetic Induction)",
+                badge: "٢",
+                color: "emerald",
+                formulas: [
+                    {
+                        name: "القوة الدافعة الكهربائية الحركية (على ساق موصلة متحركة)",
+                        latex: "E_{motional} = v \\cdot B \\cdot L \\cdot \\sin(\\theta)",
+                        desc: "قوة دافعة كهربائية تنشأ نتيجة حركة ساق موصلة بسرعة منتظمة داخل مجال مغناطيسي منتظم.",
+                        units: [
+                            "\\(v\\): سرعة الساق بالمتر في الثانية (\\(m/s\\))",
+                            "\\(B\\): كثافة الفيض المغناطيسي بالتسلا (\\(T\\))",
+                            "\\(L\\): طول الساق الموصلة بالمتر (\\(m\\))",
+                            "\\(\\theta\\): الزاوية بين اتجاه السرعة وكثافة الفيض"
+                        ]
+                    },
+                    {
+                        name: "التيار المحتث في دائرة الساق الموصلة",
+                        latex: "I_{ind} = \\frac{E_{motional}}{R}",
+                        desc: "حيث \\(R\\) هي المقاومة الكلية للساق والسكة المتصلة بها.",
+                        units: [
+                            "\\(I_{ind}\\): التيار المحتث بالأمبير (\\(A\\))",
+                            "\\(R\\): المقاومة الكلية بالأوم (\\(\\Omega\\))"
+                        ]
+                    },
+                    {
+                        name: "القوة الساحبة الخارجية (Pulling Force)",
+                        latex: "F_{pull} = F_{b2} = I_{ind} \\cdot L \\cdot B = \\frac{v \\cdot B^2 \\cdot L^2}{R}",
+                        desc: "لتظل الساق تتحرك بسرعة منتظمة، يجب التأثير بقوة خارجية تسحب الساق وتساوي القوة المغناطيسية المعرقلة في المقدار وتعاكسها في الاتجاه.",
+                        units: [
+                            "\\(F_{pull}\\): القوة الساحبة بالنيوتن (\\(N\\))"
+                        ]
+                    },
+                    {
+                        name: "قانون فرداي في الحث الكهرومغناطيسي",
+                        latex: "E_{ind} = -N \\frac{\\Delta \\Phi_B}{\\Delta t}",
+                        desc: "تتولد قوة دافعة كهربائية محتثة في حلقة موصلة أو ملف سلكي إذا تغير الفيض المغناطيسي الذي يخترق الحلقة لوحدة الزمن.",
+                        units: [
+                            "\\(N\\): عدد لفات الملف (للحلقة الواحدة \\(N=1\\))",
+                            "\\(\\Delta \\Phi_B\\): التغير في الفيض المغناطيسي بالويبر (\\(Wb\\))"
+                        ]
+                    },
+                    {
+                        name: "حساب التغير في الفيض المغناطيسي",
+                        latex: "\\Delta \\Phi_B = \\Delta B \\cdot A \\cdot \\cos(\\theta) \\quad \\text{أو} \\quad \\Delta \\Phi_B = B \\cdot \\Delta A \\cdot \\cos(\\theta)",
+                        desc: "الفيض يتغير بتغير كثافة الفيض \\(B\\) أو المساحة \\(A\\) أو الزاوية \\(\\theta\\) بين متجه المساحة ومتجه كثافة الفيض.",
+                        units: [
+                            "\\(\\theta\\): الزاوية بين متجه مساحة الحلقة \\(\\vec{A}\\) ومتجه كثافة الفيض \\(\\vec{B}\\). (ملاحظة: إذا أعطى الزاوية مع مستوى الحلقة، نطرحها من 90: \\(\\theta = 90 - \\theta_{plane}\\))"
+                        ]
+                    },
+                    {
+                        name: "القوة الدافعة الكهربائية في الملف الدوار (المولد)",
+                        latex: "E_{inst} = E_{max} \\sin(\\omega t) \\quad , \\quad E_{max} = N \\cdot B \\cdot A \\cdot \\omega",
+                        desc: "تتولد قوة دافعة جيبية جراء دوران ملف بسرعة زاوية منتظمة داخل مجال مغناطيسي.",
+                        units: [
+                            "\\(E_{max}\\): القوة الدافعة الكهربائية العظمى (الذروة)",
+                            "\\(\\omega\\): السرعة الزاوية بالراديان/ثانية (\\(rad/s\\))"
+                        ]
+                    },
+                    {
+                        name: "قانون الحث الذاتي للملف",
+                        latex: "E_{ind} = -L \\frac{\\Delta I}{\\Delta t} \\quad , \\quad N \\cdot \\Phi_B = L \\cdot I",
+                        desc: "تتولد قوة دافعة كهربائية على طرفي ملف نتيجة لتغير التيار المنساب في الملف نفسه مع الزمن.",
+                        units: [
+                            "\\(L\\): معامل الحث الذاتي للملف بالهنري (\\(H\\) أو \\(mH = 10^{-3}H\\))",
+                            "\\(\\frac{\\Delta I}{\\Delta t}\\): المعدل الزمني لتغير التيار بالأمبير/ثانية (\\(A/s\\))"
+                        ]
+                    },
+                    {
+                        name: "الطاقة المختزنة في المحث (الملف)",
+                        latex: "PE = \\frac{1}{2} L \\cdot I^2",
+                        desc: "تختزن الطاقة في المحث على شكل مجال مغناطيسي.",
+                        units: [
+                            "\\(PE\\): الطاقة الكامنة المغناطيسية بالجول (\\(J\\))",
+                            "\\(I\\): التيار الثابت المنساب في الملف"
+                        ]
+                    },
+                    {
+                        name: "المعادلة العامة للحث الذاتي (المطبقة)",
+                        latex: "V_{app} = I_{inst} \\cdot R + L \\frac{\\Delta I}{\\Delta t}",
+                        desc: "المعادلة الأساسية لحساب الفولتية المجهزة والدائرة الابتدائية.",
+                        units: [
+                            "\\(V_{app}\\): الفولتية الموضوعة (المطبقة) بالدائرة",
+                            "\\(I_{inst}\\): التيار الآني المنساب في اللحظة المحددة"
+                        ]
+                    }
+                ],
+                notes: [
+                    "<strong>لحظات التيار الآني الهامة جداً في الحث الذاتي:</strong><br>1. <strong>لحظة إغلاق الدائرة:</strong> التيار الآني \\(I_{inst} = 0\\)، وبالتالي تصبح المعادلة العامة: \\(V_{app} = L \\frac{\\Delta I}{\\Delta t}\\). المعدل الزمني لتغير التيار يكون بأعظم قيمة له.<br>2. <strong>لحظة وصول التيار إلى مقداره الثابت:</strong> يصبح المعدل الزمني لتغير التيار \\(\\frac{\\Delta I}{\\Delta t} = 0\\)، والتيار الثابت \\(I_{const} = \\frac{V_{app}}{R}\\).<br>3. <strong>لحظة نمو التيار إلى نسبة مئوية (مثلاً %x):</strong> التيار الآني \\(I_{inst} = \\frac{x}{100} \\cdot I_{const} = \\frac{x}{100} \\cdot \\frac{V_{app}}{R}\\).",
+                    "<strong>ملاحظة الحث المتبادل بين ملفين متجاورين:</strong> يرمز لمعامل الحث المتبادل بـ \\(M\\). ويحسب كالتالي:<br>1. إذا كان الاقتران المغناطيسي تاماً (ترابط مغناطيسي تام): \\(M = \\sqrt{L_1 \\cdot L_2}\\).<br>2. القوة الدافعة الكهربائية المحتثة في الملف الثانوي: \\(E_{ind2} = -M \\frac{\\Delta I_1}{\\Delta t}\\)."
+                ]
+            },
+            chapter3: {
+                title: "الفصل الثالث: التيار المتناوب (Alternating Current - AC)",
+                badge: "٣",
+                color: "indigo",
+                formulas: [
+                    {
+                        name: "الفولتية والتيار الآني في المقاومة الصرف",
+                        latex: "v_R = V_m \\sin(\\omega t) \\quad , \\quad i_R = I_m \\sin(\\omega t)",
+                        desc: "في المقاومة الصرف، الفولتية والتيار يكونان بنفس الطور (زاوية فرق الطور \\(\\phi = 0\\)).",
+                        units: []
+                    },
+                    {
+                        name: "الفولتية والتيار في المحث الصرف",
+                        latex: "v_L = V_m \\sin(\\omega t + 90^\\circ) \\quad , \\quad i_L = I_m \\sin(\\omega t)",
+                        desc: "في المحث الصرف، الفولتية تسبق التيار بزاوية طور 90 درجة (\\(\\pi/2\\) راديان).",
+                        units: []
+                    },
+                    {
+                        name: "الرادة الحثية (Inductive Reactance)",
+                        latex: "X_L = 2\\pi f \\cdot L = \\omega \\cdot L",
+                        desc: "المعاكسة التي يبديها المحث ضد تغير التيار.",
+                        units: [
+                            "\\(X_L\\): الرادة الحثية بالأوم (\\(\\Omega\\))",
+                            "\\(f\\): تردد الدائرة بالهرتز (\\(Hz\\))",
+                            "\\(L\\): معامل الحث الذاتي بالهنري (\\(H\\))"
+                        ]
+                    },
+                    {
+                        name: "الفولتية والتيار في المتسعة الصرف",
+                        latex: "v_C = V_m \\sin(\\omega t) \\quad , \\quad i_C = I_m \\sin(\\omega t + 90^\\circ)",
+                        desc: "في المتسعة الصرف، التيار يسبق الفولتية بزاوية طور 90 درجة (\\(\\pi/2\\)).",
+                        units: []
+                    },
+                    {
+                        name: "الرادة السعوية (Capacitive Reactance)",
+                        latex: "X_C = \\frac{1}{2\\pi f \\cdot C} = \\frac{1}{\\omega \\cdot C}",
+                        desc: "المعاكسة التي تبديها المتسعة ضد تغير فولتية المصدر.",
+                        units: [
+                            "\\(X_C\\): الرادة السعوية بالأوم (\\(\\Omega\\))",
+                            "\\(C\\): سعة المتسعة بالفاراد (\\(F\\))"
+                        ]
+                    },
+                    {
+                        name: "ربط التوالي لـ R-L-C (الممانعة الكلية Z)",
+                        latex: "Z = \\sqrt{R^2 + (X_L - X_C)^2} \\quad , \\quad \\tan(\\phi) = \\frac{X_L - X_C}{R}",
+                        desc: "في ربط التوالي، التيار متساوٍ في جميع أجزاء الدائرة. نستخدم مخطط الممانعة الطوري لحساب الممانعة الكلية \\(Z\\) وزاوية فرق الطور \\(\\phi\\).",
+                        units: [
+                            "\\(Z\\): الممانعة الكلية للدائرة بالأوم (\\(\\Omega\\))",
+                            "\\(\\phi\\): زاوية فرق الطور بين الفولتية الكلية والتيار الكلي"
+                        ]
+                    },
+                    {
+                        name: "عامل القدرة (Power Factor - pf)",
+                        latex: "pf = \\cos(\\phi) = \\frac{P_{real}}{P_{app}} = \\frac{R}{Z} \\quad (\\text{في التوالي})",
+                        desc: "النسبة بين القدرة الحقيقية المستهلكة والقدرة الظاهرية المجهزة للدائرة.",
+                        units: [
+                            "\\(P_{real} = I^2 \\cdot R = I \\cdot V_R \\cdot \\cos(\\phi)\\): القدرة الحقيقية (بالواط \\(W\\))",
+                            "\\(P_{app} = I \\cdot V_{total}\\): القدرة الظاهرية (بالأمبير-فولت \\(VA\\))"
+                        ]
+                    },
+                    {
+                        name: "حالة الرنين في دائرة التوالي R-L-C",
+                        latex: "X_L = X_C \\implies Z = R \\quad , \\quad f_r = \\frac{1}{2\\pi \\sqrt{L \\cdot C}}",
+                        desc: "في حالة الرنين، تكون الممانعة بأقل قيمة وتساوي المقاومة، ويكون التيار بأعظم قيمة، وعامل القدرة \\(pf = 1\\).",
+                        units: [
+                            "\\(f_r\\): التردد الرنيني بالهرتز (\\(Hz\\))",
+                            "\\(\\omega_r = \\frac{1}{\\sqrt{L \\cdot C}}\\): التردد الزاوي الرنيني (\\(rad/s\\))"
+                        ]
+                    },
+                    {
+                        name: "عامل النوعية (Quality Factor - Qf)",
+                        latex: "Q_f = \\frac{1}{R} \\sqrt{\\frac{L}{C}} = \\frac{\\omega_r}{\\Delta \\omega}",
+                        desc: "النسبة بين التردد الزاوي الرنيني ونطاق التردد الزاوي.",
+                        units: [
+                            "\\(\\Delta \\omega = \\frac{R}{L}\\): نطاق التردد الزاوي"
+                        ]
+                    },
+                    {
+                        name: "ربط التوازي لـ R-L-C (مخطط التيارات الطوري)",
+                        latex: "I_T = \\sqrt{I_R^2 + (I_C - I_L)^2} \\quad , \\quad \\tan(\\phi) = \\frac{I_C - I_L}{I_R}",
+                        desc: "في ربط التوازي، فرق الجهد متساوٍ على جميع أجزاء الدائرة. التيار الكلي يحسب بمجموع طوري للتيارات الفرعية.",
+                        units: [
+                            "ملاحظة: إذا كان \\(I_C > I_L\\)، فللدائرة خصائص سعوية وتكون زاوية الطور موجبة. إذا كان \\(I_L > I_C\\)، فللدائرة خصائص حثية وتكون زاوية الطور سالبة."
+                        ]
+                    }
+                ],
+                notes: [
+                    "<strong>ملاحظات هامة للحل في الفصل الثالث (التوالي والتوازي):</strong><br>1. <strong>المخطط الطوري:</strong> ارسم دائماً مخطط الممانعات في التوالي (فوق المحور X نضع \\(X_L\\) وتحت نضع \\(X_C\\)) ومخطط التيارات في التوازي (فوق المحور Y نضع \\(I_C\\) وتحت نضع \\(I_L\\)).<br>2. <strong>القدرة الحقيقية تستهلك فقط في المقاومة R</strong> على شكل حرارة، بينما لا تستهلك الرادات (الحثية والسعوية) أي قدرة حقيقية وإنما تخزنها وتعيدها للمصدر.",
+                    "<strong>شروط الرنين السريعة:</strong> إذا ذكر في السؤال أي من العبارات التالية، فالدائرة في حالة رنين فوراً:<br>- الفولتية الكلية والتيار الكلي بطور واحد (\\(\\phi = 0\\)).<br>- عامل القدرة يساوي 1.<br>- القدرة الحقيقية تساوي القدرة الظاهرية.<br>- الممانعة الكلية تساوي المقاومة \\(Z = R\\).<br>- رادة الحث تساوي رادة السعة \\(X_L = X_C\\)."
+                ]
+            },
+            chapter4: {
+                title: "الفصل الرابع: الموجات الكهرومغناطيسية (Electromagnetic Waves)",
+                badge: "٤",
+                color: "pink",
+                formulas: [
+                    {
+                        name: "سرعة انتشار الموجات الكهرومغناطيسية في الأوساط",
+                        latex: "v = \\frac{1}{\\sqrt{\\epsilon \\cdot \\mu}} \\quad , \\quad c = \\frac{1}{\\sqrt{\\epsilon_0 \\cdot \\mu_0}} = 3 \\times 10^8 \\text{ m/s}",
+                        desc: "سرعة الموجة تعتمد على السماحية الكهربائية والنفاذية المغناطيسية للوسط.",
+                        units: [
+                            "\\(\\epsilon\\): السماحية الكهربائية للوسط",
+                            "\\(\\mu\\): النفاذية المغناطيسية للوسط",
+                            "\\(c\\): سرعة الضوء في الفراغ"
+                        ]
+                    },
+                    {
+                        name: "العلاقة الأساسية للموجة (التردد والطول الموجي)",
+                        latex: "c = f \\cdot \\lambda \\implies f = \\frac{c}{\\lambda}",
+                        desc: "العلاقة التي تربط تردد الموجة الكهرومغناطيسية بطولها الموجي وسرعتها في الوسط.",
+                        units: [
+                            "\\(f\\): التردد بالهرتز (\\(Hz\\))",
+                            "\\(\\lambda\\): الطول الموجي بالمتر (\\(m\\))"
+                        ]
+                    },
+                    {
+                        name: "طول الهوائي الأمثل للإرسال والاستقبال",
+                        latex: "L_{half} = \\frac{\\lambda}{2} \\quad , \\quad L_{quarter} = \\frac{\\lambda}{4}",
+                        desc: "للحصول على أكبر قدرة إرسال أو استقبال، يجب أن يكون طول الهوائي مساوياً لنصف طول موجة الإشارة المرسلة أو ربع طول الموجة عند التأريض.",
+                        units: [
+                            "\\(L_{half}\\): طول الهوائي نصف الموجي غير المؤرض",
+                            "\\(L_{quarter}\\): طول الهوائي ربع الموجي المؤرض"
+                        ]
+                    }
+                ],
+                notes: [
+                    "<strong>ملاحظة في طول الهوائي:</strong> انتبه جيداً في السؤال إذا كان الهوائي مؤرضاً أو غير مؤرض. إذا كان غير مؤرض نطبق قانون نصف الموجة \\(L = \\frac{\\lambda}{2}\\)، وإذا كان مؤرضاً نطبق قانون ربع الموجة \\(L = \\frac{\\lambda}{4}\\).",
+                    "<strong>ملاحظة التردد الرنيني لدائرة الاهتزاز الكهرومغناطيسي:</strong> الدائرة المهتزة (الملف والمتسعة LC) تحسب ترددها الرنيني من العلاقة: \\(f = \\frac{1}{2\\pi \\sqrt{L \\cdot C}}\\)."
+                ]
+            },
+            chapter5: {
+                title: "الفصل الخامس: الفيزياء الحديثة (Modern Physics)",
+                badge: "٥",
+                color: "amber",
+                formulas: [
+                    {
+                        name: "قانون إزاحة فين (Wien's Displacement Law)",
+                        latex: "\\lambda_{max} \\cdot T = 2.898 \\times 10^{-3} \\text{ m.K}",
+                        desc: "الطول الموجي المقابل لأعظم شدة إشعاع منبعث من الجسم الأسود يتناسب عكسياً مع درجة الحرارة المطلقة للوسط.",
+                        units: [
+                            "\\(\\lambda_{max}\\): الطول الموجي المقابل للذروة بالمتر (\\(m\\))",
+                            "\\(T\\): درجة الحرارة المطلقة بالكلفن (\\(K\\)) (تذكر دائماً: \\(T(K) = T(^\\circ C) + 273\\))"
+                        ]
+                    },
+                    {
+                        name: "قانون ستيفان - بولتزمان للإشعاع",
+                        latex: "I = \\sigma \\cdot T^4",
+                        desc: "المعدل الزمني للطاقة التي يشعها الجسم الأسود لوحدة المساحة تتناسب طردياً مع الأس الرابع لدرجة الحرارة المطلقة.",
+                        units: [
+                            "\\(I\\): شدة الإشعاع بالواط على المتر المربع (\\(W/m^2\\))",
+                            "\\(\\sigma\\): ثابت ستيفان-بولتزمان ويساوي \\(5.67 \\times 10^{-8} \\text{ W/m}^2.\\text{K}^4\\)"
+                        ]
+                    },
+                    {
+                        name: "معادلة طاقة الفوتون (بلانك)",
+                        latex: "E = h \\cdot f = h \\frac{c}{\\lambda}",
+                        desc: "طاقة الكم الضوئي (الفوتون) تتناسب طردياً مع تردده.",
+                        units: [
+                            "\\(E\\): طاقة الفوتون بالجول (\\(J\\))",
+                            "\\(h\\): ثابت بلانك ويساوي \\(6.63 \\times 10^{-34} \\text{ J.s}\\)"
+                        ]
+                    },
+                    {
+                        name: "معادلة الظاهرة الكهرضوئية لأينشتاين",
+                        latex: "K.E._{max} = h\\cdot f - W = h\\cdot f - h\\cdot f_0",
+                        desc: "الطاقة الحركية العظمى للإلكترونات الضوئية المنبعثة تساوي طاقة الفوتون الساقط مطروحاً منها دالة الشغل للمعدن.",
+                        units: [
+                            "\\(K.E._{max}\\): الطاقة الحركية العظمى للإلكترونات الضوئية (بالجول \\(J\\) أو الإلكترون فولت \\(eV\\))",
+                            "\\(W = h\\cdot f_0\\): دالة الشغل للمعدن (بالجول)",
+                            "\\(f_0\\): تردد العتبة للمعدن وهو أقل تردد يولد الانبعاث الكهرضوئي"
+                        ]
+                    },
+                    {
+                        name: "طاقة الإلكترونات بدلالة جهد القطع (الإيقاف)",
+                        latex: "K.E._{max} = e \\cdot V_s = \\frac{1}{2} m_e \\cdot v_{max}^2",
+                        desc: "العلاقة الرابطة بين جهد الإيقاف اللازم لإيقاف أسرع الإلكترونات الضوئية المنبعثة وطاقتها الحركية.",
+                        units: [
+                            "\\(e\\): شحنة الإلكترون وثابتها \\(1.6 \\times 10^{-19} \\text{ C}\\)",
+                            "\\(V_s\\): جهد القطع أو الإيقاف بالفولت (\\(V\\))",
+                            "\\(m_e\\): كتلة الإلكترون وثابتها \\(9.11 \\times 10^{-31} \\text{ kg}\\)",
+                            "\\(v_{max}\\): الانطلاق الأعظم (السرعة العظمى) للإلكترونات الضوئية (\\(m/s\\))"
+                        ]
+                    },
+                    {
+                        name: "طول موجة دي برولي (الموجات المادية)",
+                        latex: "\\lambda_d = \\frac{h}{p} = \\frac{h}{m \\cdot v}",
+                        desc: "كل جسم مادي متحرك تصاحبه موجات مادية طولها الموجي يتناسب عكسياً مع زخمه.",
+                        units: [
+                            "\\(p = m \\cdot v\\): زخم الجسم المتحرك",
+                            "\\(\\lambda_d\\): طول موجة دي برولي بالمتر"
+                        ]
+                    },
+                    {
+                        name: "مبدأ اللادقة لهايزنبرغ (Heisenberg Uncertainty Principle)",
+                        latex: "\\Delta x \\cdot \\Delta p \\ge \\frac{h}{4\\pi}",
+                        desc: "من المستحيل قياس موضع جسيم وزخمه بدقة تامة في آن واحد.",
+                        units: [
+                            "\\(\\Delta x\\): اللادقة في موضع الجسيم",
+                            "\\(\\Delta p = m \\cdot \\Delta v\\): اللادقة في زخم الجسيم"
+                        ]
+                    }
+                ],
+                notes: [
+                    "<strong>قاعدة التحويل الأساسية للطاقة (هام جداً):</strong><br>1. للتحويل من إلكترون فولت (\\(eV\\)) إلى جول (\\(J\\)): نضرب في شحنة الإلكترون \\(1.6 \\times 10^{-19}\\).<br>2. للتحويل من جول (\\(J\\)) إلى إلكترون فولت (\\(eV\\)) : نقسم على شحنة الإلكترون \\(1.6 \\times 10^{-19}\\).",
+                    "<strong>ملاحظة حل مسائل الظاهرة الكهرضوئية:</strong> ينبعث إلكترون ضوئي فقط إذا كان تردد الضوء الساقط أكبر من أو يساوي تردد العتبة للمعدن (\\(f \\ge f_0\\)) أو إذا كان الطول الموجي للضوء الساقط أصغر من أو يساوي طول موجة العتبة (\\(\\lambda \\le \\lambda_0\\))."
+                ]
+            },
+            chapter6: {
+                title: "الفصل السادس: إلكترونيات الحالة الصلبة (Solid State Electronics)",
+                badge: "٦",
+                color: "cyan",
+                formulas: [
+                    {
+                        name: "علاقة تيار الثنائي البلوري (P-N Diode)",
+                        latex: "I = I_{diff} - I_{drift}",
+                        desc: "التيار الكلي المار في الثنائي يمثل محصلة تيار الانتشار وتيار الانجراف لحوامل الشحنة.",
+                        units: [
+                            "\\(I_{diff}\\): تيار الانتشار الناتج عن حركة ناقلات الشحنة الأغلبية",
+                            "\\(I_{drift}\\): تيار الانجراف الناتج عن تأثير المجال الكهربائي الداخلي لحقن الشحنات الأقلية"
+                        ]
+                    },
+                    {
+                        name: "ربح التيار في مضخم القاعدة المشتركة (Common Base)",
+                        latex: "\\alpha = \\frac{I_C}{I_E}",
+                        desc: "النسبة بين تيار الجامع وتيار الباعث، وتكون قيمته دائماً أقل من الواحد الصحيح (حوالي 0.98).",
+                        units: [
+                            "\\(I_C\\): تيار الجامع (Collector Current)",
+                            "\\(I_E\\): تيار الباعث (Emitter Current)"
+                        ]
+                    },
+                    {
+                        name: "ربح التيار في مضخم الباعث المشترك (Common Emitter)",
+                        latex: "\\beta = \\frac{I_C}{I_B} \\quad , \\quad I_E = I_B + I_C",
+                        desc: "النسبة بين تيار الجامع وتيار القاعدة، ويكون ربح التيار كبيراً جداً.",
+                        units: [
+                            "\\(I_B\\): تيار القاعدة (Base Current)"
+                        ]
+                    }
+                ],
+                notes: [
+                    "<strong>ملاحظة الترنزستور الذهبية:</strong> تيار الباعث هو الأكبر دائماً في جميع أنواع الترانزستورات، حيث يمثل المجموع الجبري لتيار القاعدة الصغير جداً وتيار الجامع: \\(I_E = I_B + I_C\\).",
+                    "<strong>انحياز الثنائي P-N:</strong><br>1. <strong>الانحياز الأمامي:</strong> يربط القطب الموجب بالمنطقة P والسالب بالمنطقة N. تقل منطقة الاستنزاف وتقل المقاومة ويمر تيار كبير.<br>2. <strong>الانحياز العكسي:</strong> يربط القطب الموجب بـ N والسالب بـ P. تزداد منطقة الاستنزاف وتزداد المقاومة ولا يمر تيار (عدا تيار تسرب ضئيل جداً)."
+                ]
+            },
+            chapter7: {
+                title: "الفصل السابع: الأطياف الذرية والليزر (Atomic Spectra & Lasers)",
+                badge: "٧",
+                color: "teal",
+                formulas: [
+                    {
+                        name: "الطاقة الحركية للإلكترون المعجل في أنبوبة الأشعة السينية",
+                        latex: "K.E._{max} = e \\cdot V = h \\cdot f_{max} = h \\frac{c}{\\lambda_{min}}",
+                        desc: "تتحول الطاقة الكهربائية للإلكترون المعجل تحت فرق جهد \\(V\\) إلى فوتون أشعة سينية بأقصى تردد وأقصر طول موجي.",
+                        units: [
+                            "\\(V\\): فرق الجهد الكهربائي المسلط على طرفي أنبوبة الأشعة السينية بالفولت",
+                            "\\(f_{max}\\): التردد الأعظم لفوتون الأشعة السينية المنبعث بالهرتز",
+                            "\\(\\lambda_{min}\\): الطول الموجي الأقصر لفوتون الأشعة السينية بالمتر"
+                        ]
+                    },
+                    {
+                        name: "أقصر طول موجي للأشعة السينية المستمرة",
+                        latex: "\\lambda_{min} = \\frac{h \\cdot c}{e \\cdot V}",
+                        desc: "يمكن حساب أقصر طول موجي للأشعة السينية الساقطة بمعرفة جهد التعجيل فقط.",
+                        units: [
+                            "\\(\\lambda_{min} = \\frac{12.4 \\times 10^{-7}}{V}\\): اشتقاق تقريبي سريع ومباشر للحل الرياضي للتأكد"
+                        ]
+                    },
+                    {
+                        name: "طاقة المستوى الذري المستقر للهيدروجين",
+                        latex: "E_n = -\\frac{13.6}{n^2} \\text{ eV}",
+                        desc: "مستويات الطاقة لذرة الهيدروجين تعتمد على رقم المدار \\(n\\).",
+                        units: [
+                            "\\(n\\): رقم المدار (الكم الرئيسي) ويأخذ القيم الصحيحة \\(1, 2, 3, \\dots\\)"
+                        ]
+                    }
+                ],
+                notes: [
+                    "<strong>ملاحظة ذهبية لحل مسائل الأشعة السينية:</strong> لحساب أقصر طول موجي \\(\\lambda_{min}\\)، انتبه جيداً لتحويل قيمة جهد التعجيل \\(V\\) إلى فولت، واستخدام الثوابت: ثابت بلانك \\(h\\)، سرعة الضوء \\(c\\)، وشحنة الإلكترون \\(e\\). النتيجة تكون دائماً بقيم صغيرة جداً من رتبة النانومتر أو المتر المضروب بـ \\(10^{-10}\\) (أنغستروم).",
+                    "<strong>توليد الليزر:</strong> يتطلب ثلاثة شروط أساسية: وجود وسط فعال، مرنان (تجويف رنيني)، وتوزيع معكوس لمستويات الطاقة (حيث يكون عدد الذرات في مستويات الطاقة العليا أكبر منه في الدنيا)."
+                ]
+            },
+            chapter8: {
+                title: "الفصل الثامن: النظرية النسبية (Theory of Relativity)",
+                badge: "٨",
+                color: "yellow",
+                formulas: [
+                    {
+                        name: "معامل لورنتز للتصحيح النسبي (Lorentz Factor)",
+                        latex: "\\gamma = \\frac{1}{\\sqrt{1 - \\frac{v^2}{c^2}}}",
+                        desc: "المعامل الذي تزداد أو تتقلص بموجبه الكميات الفيزيائية عند الحركة بسرعات قريبة من سرعة الضوء.",
+                        units: [
+                            "\\(v\\): سرعة الجسيم أو الإطار الإسنادي بالمتر/ثانية",
+                            "\\(c\\): سرعة الضوء في الفراغ",
+                            "\\(\\gamma\\): معامل لورنتز وهو دائماً أكبر من أو يساوي 1"
+                        ]
+                    },
+                    {
+                        name: "قانون تمدد الزمن النسبي (Time Dilation)",
+                        latex: "t = \\gamma \\cdot t_0 = \\frac{t_0}{\\sqrt{1 - \\frac{v^2}{c^2}}}",
+                        desc: "الزمن المقاس في الإطار المتحرك يبدو أطول (متمدداً) مقارنة بالزمن المقاس في الإطار الساكن.",
+                        units: [
+                            "\\(t_0\\): الزمن الخاص أو الساكن (Proper Time)",
+                            "\\(t\\): الزمن النسبي المقاس بواسطة راصد متحرك"
+                        ]
+                    },
+                    {
+                        name: "قانون انكماش الطول النسبي (Length Contraction)",
+                        latex: "L = \\frac{L_0}{\\gamma} = L_0 \\sqrt{1 - \\frac{v^2}{c^2}}",
+                        desc: "الأجسام المتحركة تبدو منكمشة في اتجاه حركتها بالنسبة لراصد ساكن.",
+                        units: [
+                            "\\(L_0\\): الطول الأصلي الساكن للجسم",
+                            "\\(L\\): الطول النسبي المقاس للجسم المتحرك"
+                        ]
+                    },
+                    {
+                        name: "قانون تكافؤ الكتلة والطاقة لأينشتاين",
+                        latex: "E_0 = m_0 \\cdot c^2 \\quad , \\quad E = m \\cdot c^2 = \\gamma \\cdot m_0 \\cdot c^2",
+                        desc: "الكتلة والطاقة صنوان لشيء واحد، ويمكن تحويل الكتلة الساكنة بالكامل لطاقة هائلة.",
+                        units: [
+                            "\\(E_0\\): الطاقة الساكنة للجسم بالجول",
+                            "\\(E\\): الطاقة الكلية للجسم بوجود الحركة"
+                        ]
+                    }
+                ],
+                notes: [
+                    "<strong>ملاحظة نسبية هامة:</strong> في المسائل الرياضية، تعطى السرعة غالباً ككسر من سرعة الضوء، مثلاً \\(v = 0.6c\\) أو \\(v = 0.8c\\). في هذه الحالة، يسهل حساب الكسر \\(\\frac{v^2}{c^2}\\) مباشرة كـ \\(0.36\\) أو \\(0.64\\) دون الحاجة لتعويض قيمة سرعة الضوء \\(3 \\times 10^8\\).",
+                    "<strong>تطبيق سريع:</strong> إذا كانت \\(v = 0.6c\\)، فإن معامل لورنتز \\(\\gamma = \\frac{1}{\\sqrt{1-0.36}} = \\frac{1}{\\sqrt{0.64}} = \\frac{1}{0.8} = 1.25\\)."
+                ]
+            },
+            nuclear: {
+                title: "الفصل التاسع: الفيزياء النووية (Nuclear Physics)",
+                badge: "٩",
+                color: "red",
+                formulas: [
+                    {
+                        name: "شحنة النواة الكهربائية (Nuclear Charge)",
+                        latex: "q = Z \\cdot e",
+                        desc: "شحنة النواة الكلية تساوي حاصل ضرب العدد الذري (عدد البروتونات) في شحنة البروتون الموجبة.",
+                        units: [
+                            "\\(q\\): شحنة النواة بالكولوم",
+                            "\\(Z\\): العدد الذري للنواة (عدد البروتونات)",
+                            "\\(e\\): شحنة البروتون أو الإلكترون وثابتها \\(1.6 \\times 10^{-19} \\text{ C}\\)"
+                        ]
+                    },
+                    {
+                        name: "نصف قطر النواة المقدر بالمتر والفيرمي",
+                        latex: "R = R_0 \\cdot A^{1/3}",
+                        desc: "نصف قطر النواة يتناسب طردياً مع الجذر التكعيبي للعدد الكتلي \\(A\\).",
+                        units: [
+                            "\\(R_0\\): ثابت نصف القطر النووي ويساوي \\(1.2 \\times 10^{-15} \\text{ m}\\) (بالمتر) أو \\(1.2 \\text{ F}\\) (بالفيرمي)",
+                            "\\(A\\): العدد الكتلي للنواة (البروتونات + النيوترونات)",
+                            "ملاحظة: الفيرمي (\\(F\\)) هو وحدة قياس نووية وتساوي \\(10^{-15} \\text{ m}\\)."
+                        ]
+                    },
+                    {
+                        name: "حجم النواة التقريبي (Volume)",
+                        latex: "V = \\frac{4}{3} \\pi R^3 = \\frac{4}{3} \\pi R_0^3 \\cdot A",
+                        desc: "باعتبار النواة كرة مصمتة تقريباً، فإن حجمها يتناسب طردياً مع العدد الكتلي للنواة \\(A\\).",
+                        units: []
+                    },
+                    {
+                        name: "النقص الكتلي في النواة (Mass Defect)",
+                        latex: "\\Delta m = (Z \\cdot m_H + N \\cdot m_n) - M",
+                        desc: "الفرق بين مجموع كتل مكونات النواة وهي منفردة وكتلة النواة الفعلية المترابطة.",
+                        units: [
+                            "\\(m_H\\): كتلة ذرة الهيدروجين (البروتون) بوحدة الكتل الذرية (\\(u\\))",
+                            "\\(m_n\\): كتلة النيوترون بوحدة الكتل الذرية",
+                            "\\(M\\): الكتلة الفعلية للنواة المعطاة في السؤال بوحدة الكتل الذرية (\\(u\\))",
+                            "\\(N = A - Z\\): عدد النيوترونات في النواة"
+                        ]
+                    },
+                    {
+                        name: "طاقة الربط النووية (Nuclear Binding Energy - Eb)",
+                        latex: "E_b = \\Delta m \\cdot 931 \\text{ MeV}",
+                        desc: "الطاقة المكافئة للنقص الكتلي طبقاً لمعادلة أينشتاين، وهي الطاقة اللازمة لتفكيك النواة إلى مكوناتها الأساسية.",
+                        units: [
+                            "\\(E_b\\): طاقة الربط النووية بوحدة مليون إلكترون فولت (\\(MeV\\))",
+                            "ملاحظة: الثابت 931 يمثل الطاقة المكافئة لوحدة الكتل الذرية الواحدة (\\(1 u = 931 \\text{ MeV}\\))"
+                        ]
+                    },
+                    {
+                        name: "معدل طاقة الربط النووية لكل نيوكليون",
+                        latex: "E_{b/A} = \\frac{E_b}{A}",
+                        desc: "مقياس لمدى استقرار النواة؛ فكلما زاد معدل طاقة الربط لكل نيوكليون، كانت النواة أكثر استقراراً تقع في منتصف جدول العناصر.",
+                        units: []
+                    }
+                ],
+                notes: [
+                    "<strong>ملاحظة ذهبية لحساب طاقة الربط النووية Eb:</strong><br>1.  احسب عدد النيوترونات أولاً: \\(N = A - Z\\).<br>2. طبق قانون النقص الكتلي بدقة تامة لعدد المراتب العشرية المعطاة بالسؤال (غالباً 5 مراتب بعد الفارزة). لا تقم بتقريب الأرقام أبداً لأن الفروق الكتلية النووية صغيرة جداً وحسازة.<br>3. اضرب الناتج النهائي للنقص الكتلي \\(\\Delta m\\) في الثابت \\(931\\) لتحصل على الطاقة بالـ \\(MeV\\).",
+                    "<strong>ملاحظة تحويل الطاقة النووية:</strong> للتحويل من مليون إلكترون فولت (\\(MeV\\)) إلى جول (\\(J\\)): نضرب في \\(1.6 \\times 10^{-13}\\)."
+                ]
+            }
+        };
+
+        // State variables for active chapter
+        let activeChapterKey = "";
+
+        // Open Modal and load chapter data
+        function openModal(chapterKey) {
+            const data = chaptersData[chapterKey];
+            if (!data) return;
+
+            activeChapterKey = chapterKey;
+
+            // Update Header & Badge
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-badge').innerText = data.badge;
+            document.getElementById('modal-badge').className = `w-12 h-12 rounded-2xl bg-${data.color}-500/10 text-${data.color}-400 flex items-center justify-center text-xl font-bold`;
+
+            // Clear Tabs
+            document.getElementById('modal-tab-formulas').innerHTML = "";
+            document.getElementById('modal-tab-notes').innerHTML = "";
+
+            // Populate Formulas Tab
+            data.formulas.forEach(formula => {
+                const formulaEl = document.createElement('div');
+                formulaEl.className = "bg-slate-950/40 border border-slate-800 p-5 rounded-2xl";
+                
+                let unitsHtml = "";
+                if (formula.units && formula.units.length > 0) {
+                    unitsHtml = `<div class="mt-3 pt-3 border-t border-slate-900/60 text-xs text-slate-400 space-y-1">
+                                    <span class="block font-semibold text-slate-300 mb-1">توضيح الرموز والوحدات:</span>
+                                    ${formula.units.map(u => `<p>• ${u}</p>`).join('')}
+                                 </div>`;
+                }
+
+                formulaEl.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <h4 class="text-sm font-bold text-white flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-${data.color}-500"></span>
+                            ${formula.name}
+                        </h4>
+                    </div>
+                    <p class="text-xs text-slate-300 mb-3">${formula.desc}</p>
+                    <div class="bg-slate-950 p-4 rounded-xl text-center overflow-x-auto text-lg text-emerald-400 font-mono tracking-wide border border-slate-800/80">
+                        \\[${formula.latex}\\]
+                    </div>
+                    ${unitsHtml}
+                `;
+                document.getElementById('modal-tab-formulas').appendChild(formulaEl);
+            });
+
+            // Populate Notes Tab
+            data.notes.forEach((note, index) => {
+                const noteEl = document.createElement('div');
+                noteEl.className = "bg-slate-950/40 border border-slate-800 p-5 rounded-2xl flex gap-3";
+                noteEl.innerHTML = `
+                    <div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-1">ملاحظة ذهبية #${index + 1}</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">${note}</p>
+                    </div>
+                `;
+                document.getElementById('modal-tab-notes').appendChild(noteEl);
+            });
+
+            // Render MathJax to draw beautiful formulas
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+
+            // Default Modal view state (Show Formulas, Hide Notes)
+            switchModalTab('formulas');
+
+            // Show Modal with Animation
+            const modal = document.getElementById('chapter-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('chapter-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Switch Tabs in Modal
+        function switchModalTab(tab) {
+            const btnFormulas = document.getElementById('tab-btn-formulas');
+            const btnNotes = document.getElementById('tab-btn-notes');
+            const tabFormulas = document.getElementById('modal-tab-formulas');
+            const tabNotes = document.getElementById('modal-tab-notes');
+
+            // Active Chapter Color
+            const activeColor = chaptersData[activeChapterKey]?.color || 'blue';
+
+            if (tab === 'formulas') {
+                btnFormulas.className = `px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-${activeColor}-600 text-white transition-all`;
+                btnNotes.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:text-white transition-all";
+                tabFormulas.classList.remove('hidden');
+                tabFormulas.classList.add('hidden');
+                tabFormulas.classList.remove('hidden');
+                tabNotes.classList.add('hidden');
+            } else {
+                btnFormulas.className = "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:text-white transition-all";
+                btnNotes.className = `px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-amber-600 text-white transition-all`;
+                tabFormulas.classList.add('hidden');
+                tabNotes.classList.remove('hidden');
+            }
+        }
+
+        // Capicitance Calculator Logic (Fixed & Robust parsing of inputs)
+        function calculateCapacitance() {
+            const qStr = document.getElementById('calc-q').value.trim();
+            const cStr = document.getElementById('calc-c').value.trim();
+            const vStr = document.getElementById('calc-v').value.trim();
+            const resBox = document.getElementById('cap-result');
+
+            let resultText = "";
+
+            // Check how many variables are filled
+            const hasQ = qStr !== "";
+            const hasC = cStr !== "";
+            const hasV = vStr !== "";
+
+            const q = parseFloat(qStr);
+            const c = parseFloat(cStr);
+            const v = parseFloat(vStr);
+
+            if (hasQ && hasC && !hasV) {
+                // Calculate V = Q / C
+                if (c === 0) {
+                    resultText = "خطأ: سعة المتسعة لا يمكن أن تكون صفراً.";
+                } else {
+                    const calcV = q / c;
+                    resultText = `النتيجة: فرق الجهد هو \\(\\Delta V = \\frac{Q}{C} = \\frac{${q}}{${c}} = ${calcV.toFixed(2)}\\) فولت (\\(V\\)).`;
+                }
+            } else if (hasQ && !hasC && hasV) {
+                // Calculate C = Q / V
+                if (v === 0) {
+                    resultText = "خطأ: فرق الجهد لا يمكن أن يكون صفراً.";
+                } else {
+                    const calcC = q / v;
+                    resultText = `النتيجة: السعة هي \\(C = \\frac{Q}{\\Delta V} = \\frac{${q}}{${v}} = ${calcC.toFixed(2)}\\) ميكروفاراد (\\(\\mu F\\)).`;
+                }
+            } else if (!hasQ && hasC && hasV) {
+                // Calculate Q = C * V
+                const calcQ = c * v;
+                resultText = `النتيجة: الشحنة المختزنة هي \\(Q = C \\times \\Delta V = ${c} \\times ${v} = ${calcQ.toFixed(2)}\\) ميكروكولوم (\\(\\mu C\\)).`;
+            } else {
+                resultText = "الرجاء تعبئة خانتين بالضبط وترك الخانة الثالثة فارغة تماماً ليقوم النظام بحسابها تلقائياً.";
+            }
+
+            resBox.innerHTML = resultText;
+            resBox.classList.remove('hidden');
+            if (window.MathJax) {
+                MathJax.typesetPromise([resBox]);
+            }
+        }
+
+        // Unit Converter Logic
+        function convertUnits() {
+            const val = parseFloat(document.getElementById('unit-val').value);
+            const from = document.getElementById('unit-from').value;
+            const resBox = document.getElementById('unit-result');
+
+            if (isNaN(val)) {
+                resBox.innerText = "الرجاء إدخال قيمة رقمية صحيحة.";
+                resBox.classList.remove('hidden');
+                return;
+            }
+
+            let multiplier = 1;
+            let exponentText = "";
+
+            switch (from) {
+                case 'micro':
+                    multiplier = 1e-6;
+                    exponentText = "10^{-6}";
+                    break;
+                case 'nano':
+                    multiplier = 1e-9;
+                    exponentText = "10^{-9}";
+                    break;
+                case 'pico':
+                    multiplier = 1e-12;
+                    exponentText = "10^{-12}";
+                    break;
+                case 'milli':
+                    multiplier = 1e-3;
+                    exponentText = "10^{-3}";
+                    break;
+                case 'mega':
+                    multiplier = 1e6;
+                    exponentText = "10^{6}";
+                    break;
+            }
+
+            const finalVal = val * multiplier;
+            resBox.innerHTML = `النتيجة العلمية: \\(${val} \\times ${exponentText} = ${finalVal.toExponential(4)}\\) من الوحدة الأساسية.`;
+            resBox.classList.remove('hidden');
+            if (window.MathJax) {
+                MathJax.typesetPromise([resBox]);
+            }
+        }
+    </script>
+</body>
+</html>
