@@ -2,10 +2,14 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 <title>بوابة قوانين الفيزياء | ملخصات وقوانين السادس العلمي كاملة</title>
 <meta name="description" content="كل قوانين الفيزياء للسادس العلمي: فصول الموقع التفاعلية، حاسبات ذكية، وموسوعة نصية كاملة تفريغ 81 لوحة من ملخصي الأستاذ مؤيد سليم والأستاذ علي السوداني.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -412,6 +416,143 @@ mjx-container[jax="CHTML"][display="true"]{overflow-x:auto;overflow-y:hidden}
   .enc-badge{display:none}
 }
 
+
+/* ============================================================
+   طبقة الحركة والانسيابية — Motion · Performance · Polish
+   ============================================================ */
+:root{
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --motion:.46s;
+}
+section[id]{scroll-margin-top:84px}
+*{-webkit-tap-highlight-color:transparent}
+a,button,summary,.chip,input,select,textarea{touch-action:manipulation}
+::selection{background:rgba(34,211,238,.3);color:#fff}
+
+/* شرائط تمرير رقيقة متناسقة مع الثيم */
+html{scrollbar-color:#33456a transparent;scrollbar-width:thin}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#2b3d5c;border-radius:999px;border:2px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:#3a507a;background-clip:content-box}
+
+/* شريط تقدّم القراءة أعلى الصفحة */
+#readbar{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:80;pointer-events:none;
+  background:linear-gradient(90deg,#22d3ee,#3b82f6 55%,#a78bfa);
+  transform:scaleX(0);transform-origin:100% 50%;will-change:transform;
+}
+
+/* الظهور التدريجي عند التمرير (يعمل فقط مع JavaScript) */
+html.js .reveal{opacity:0}
+html.js .reveal.in{
+  opacity:1;animation:fezya-rise var(--motion) var(--ease-out) backwards;
+  animation-delay:var(--d,0ms);will-change:auto;
+}
+@keyframes fezya-rise{
+  from{opacity:0;transform:translate3d(0,16px,0)}
+  to{opacity:1;transform:translate3d(0,0,0)}
+}
+@keyframes fezya-pop{
+  from{opacity:0;transform:translate3d(0,7px,0)}
+  to{opacity:1;transform:translate3d(0,0,0)}
+}
+
+/* انتقالات موحّدة للعناصر التفاعلية */
+.btn,.tool-btn,.chip,.header-cta,.enc-tocbtn,#toTop,.chapter-card,.tip,.tool-card,
+.enc-card,.stat,.enc-src-card,.enc-chapter-title,.enc-toc,.enc-chap li a{
+  transition:transform .26s var(--ease),box-shadow .26s var(--ease),
+             background-color .26s var(--ease),border-color .26s var(--ease),
+             color .2s var(--ease),filter .2s var(--ease);
+}
+.btn:hover,.tool-btn:hover,.header-cta:hover,.chip:hover{transform:translate3d(0,-2px,0)}
+.btn:active,.tool-btn:active,.header-cta:active,.chip:active,
+.chapter-card:active{transform:translate3d(0,0,0) scale(.985)}
+.chip:hover{box-shadow:0 8px 20px rgba(2,6,23,.35)}
+.tip:hover,.tool-card:hover{transform:translate3d(0,-3px,0);border-color:#2b3d5e}
+.stat:hover{transform:translate3d(0,-2px,0);border-color:#2b3d5e}
+.enc-card:hover{border-color:#2f4464;box-shadow:0 18px 38px rgba(2,6,23,.42)}
+.enc-card:target,.enc-chapter-title:target{
+  border-color:#22d3ee;box-shadow:0 0 0 1px rgba(34,211,238,.45),0 18px 40px rgba(2,6,23,.45);
+}
+#toTop:hover{transform:translate3d(0,-3px,0);border-color:var(--brand);color:#fff;background:#1c2b47}
+
+/* حلقة تركيز واضحة وسلسة للوحة المفاتيح */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,
+summary:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid #67e8f9;outline-offset:3px;border-radius:8px;
+}
+
+/* حالة الشريط العلوي عند التمرير */
+.site-header{transition:box-shadow .3s var(--ease),background-color .3s var(--ease),border-color .3s var(--ease)}
+.site-header.scrolled{
+  background:rgba(6,11,20,.96);border-bottom-color:#2b3f5e;
+  box-shadow:0 16px 36px rgba(2,6,23,.55);
+}
+.nav a{transition:background-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.nav a:hover{transform:translate3d(0,-1px,0)}
+.nav a.active{box-shadow:inset 0 0 0 1px rgba(59,130,246,.28)}
+
+/* قائمة الهاتف وفهرس الموسوعة: ظهور ناعم بدل القفز */
+@media (max-width:1080px){
+  .nav{
+    display:flex;opacity:0;visibility:hidden;transform:translate3d(0,-8px,0);
+    pointer-events:none;transition:opacity .24s var(--ease),transform .24s var(--ease),visibility .24s;
+  }
+  .nav.open{display:flex;opacity:1;visibility:visible;transform:translate3d(0,0,0);pointer-events:auto}
+  .enc-toc{
+    display:block;opacity:0;visibility:hidden;transform:translate3d(0,-6px,0);
+    pointer-events:none;transition:opacity .24s var(--ease),transform .24s var(--ease),visibility .24s;
+  }
+  .enc-toc.open{opacity:1;visibility:visible;transform:translate3d(0,0,0);pointer-events:auto}
+
+  /* تخفيف الحمل الرسومي على الهاتف لتمرير أنعم */
+  .site-header{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(8,14,26,.98)}
+  .enc-card{box-shadow:none}
+  .enc-card:hover{box-shadow:none}
+}
+
+/* زر العودة للأعلى: ظهور واختفاء بحركة */
+#toTop{
+  display:grid;opacity:0;visibility:hidden;transform:translate3d(0,12px,0);
+  transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s,
+             background-color .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease);
+}
+#toTop.show{display:grid;opacity:1;visibility:visible;transform:translate3d(0,0,0)}
+
+/* نتائج الحاسبات */
+.result.show{animation:fezya-pop .32s var(--ease-out) backwards}
+
+/* الصيغ الرياضية تظهر بنعومة بعد جاهزية MathJax */
+mjx-container{opacity:0;transition:opacity .3s linear}
+html.math-ready mjx-container{opacity:1}
+
+/* فهرس الموسوعة */
+.enc-chap>summary{transition:background-color .2s var(--ease)}
+.enc-chap li a{transition:background-color .18s var(--ease),color .18s var(--ease),border-color .18s var(--ease)}
+.enc-search{transition:border-color .2s var(--ease),box-shadow .2s var(--ease),background-color .2s var(--ease)}
+.enc-search:focus{box-shadow:0 0 0 3px rgba(59,130,246,.16)}
+
+/* حالة "لا نتائج" في البحث */
+.enc-empty{
+  margin:14px 0;padding:16px;text-align:center;border:1px dashed #2b3d5e;border-radius:14px;
+  color:#9fb0cc;font-size:13.5px;background:rgba(59,130,246,.05);
+  animation:fezya-pop .3s var(--ease-out) backwards;
+}
+[hidden]{display:none !important}
+
+/* احترام تفضيل تقليل الحركة */
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  html.js .reveal{opacity:1 !important;animation:none !important}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;scroll-behavior:auto !important;
+  }
+}
+
 /* ---------------- الطباعة ---------------- */
 @media print{
   body{background:#fff;color:#000;font-size:12pt}
@@ -430,9 +571,16 @@ mjx-container[jax="CHTML"][display="true"]{overflow-x:auto;overflow-y:hidden}
   .enc-chapter-title{background:#eee;color:#000;border-color:#bbb}
   .enc-bookhead h3{color:#000}
 }
+@media print{
+  #readbar{display:none !important}
+  html.js .reveal{opacity:1 !important;animation:none !important}
+  mjx-container{opacity:1 !important}
+  .enc-empty{display:none !important}
+}
 </style>
 </head>
 <body>
+<div id="readbar" aria-hidden="true"></div>
 
 <!-- ==================== الشريط العلوي ==================== -->
 <header class="site-header">
@@ -914,159 +1062,470 @@ mjx-container[jax="CHTML"][display="true"]{overflow-x:auto;overflow-y:hidden}
 <button id="toTop" aria-label="عودة للأعلى"><i class="fas fa-chevron-up"></i></button>
 
 <script>
-// ---------- قائمة الموبايل ----------
-const navToggle = document.getElementById('navToggle');
-const mainNav = document.getElementById('mainNav');
-if (navToggle) {
-  navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
-  mainNav.addEventListener('click', e => { if (e.target.closest('a')) mainNav.classList.remove('open'); });
-}
+// ============================================================
+//  طبقة التفاعل والحركة — مكتوبة بحذر: لا أخطاء، لا تقطيع
+// ============================================================
+(function () {
+  'use strict';
 
-// ---------- تمييز القسم الحالي في الشريط ----------
-const navLinks = Array.from(document.querySelectorAll('.nav a'));
-const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-const navObs = new IntersectionObserver(entries => {
-  entries.forEach(en => {
-    if (!en.isIntersecting) return;
-    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
-  });
-}, { rootMargin: '-40% 0px -55% 0px' });
-sections.forEach(s => navObs.observe(s));
+  var docEl = document.documentElement;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var raf = window.requestAnimationFrame ? window.requestAnimationFrame.bind(window)
+          : function (cb) { return setTimeout(cb, 16); };
+  var reduceMQ = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
 
-// ---------- زر العودة للأعلى ----------
-const toTop = document.getElementById('toTop');
-window.addEventListener('scroll', () => {
-  toTop.classList.toggle('show', window.scrollY > 700);
-}, { passive: true });
-toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-// ---------- فهرس الموسوعة (درج الموبايل) ----------
-const encToc = document.getElementById('encToc');
-const encTocBtn = document.getElementById('encTocBtn');
-if (encTocBtn && encToc) {
-  encTocBtn.addEventListener('click', () => {
-    const open = encToc.classList.toggle('open');
-    encTocBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  encToc.addEventListener('click', e => {
-    if (e.target.closest('a') && window.innerWidth <= 1080) encToc.classList.remove('open');
-  });
-}
-
-// ---------- البحث الفوري ----------
-const encSearch = document.getElementById('encSearch');
-if (encSearch) {
-  encSearch.addEventListener('input', () => {
-    const q = encSearch.value.trim();
-    document.querySelectorAll('.enc-card').forEach(card => {
-      card.style.display = (q && card.textContent.indexOf(q) === -1) ? 'none' : '';
-    });
-    document.querySelectorAll('.enc-chapter').forEach(block => {
-      const any = Array.from(block.querySelectorAll('.enc-card')).some(c => c.style.display !== 'none');
-      block.style.display = (q && !any) ? 'none' : '';
-    });
-    document.querySelectorAll('.enc-toc .enc-chap li').forEach(li => {
-      li.style.display = (!q || li.textContent.indexOf(q) !== -1) ? '' : 'none';
-    });
-  });
-}
-
-// ---------- تثبيت اللوحة الحالية في الفهرس ----------
-const tocLinks = Array.from(document.querySelectorAll('.enc-toc a[href^="#"]'));
-const tocMap = {};
-tocLinks.forEach(a => { tocMap[a.getAttribute('href').slice(1)] = a; });
-if ('IntersectionObserver' in window) {
-  const cardObs = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      tocLinks.forEach(l => l.classList.remove('enc-active'));
-      const a = tocMap[en.target.id];
-      if (a) a.classList.add('enc-active');
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  document.querySelectorAll('.enc-card').forEach(c => cardObs.observe(c));
-}
-
-// ---------- حاسبة المتسعة ----------
-function calcCapacitance() {
-  const qStr = document.getElementById('calc-q').value.trim();
-  const cStr = document.getElementById('calc-c').value.trim();
-  const vStr = document.getElementById('calc-v').value.trim();
-  const box = document.getElementById('cap-result');
-  const q = parseFloat(qStr), c = parseFloat(cStr), v = parseFloat(vStr);
-  const hasQ = qStr !== '', hasC = cStr !== '', hasV = vStr !== '';
-  let out = '';
-
-  if (hasQ && hasC && !hasV) {
-    out = c === 0 ? 'خطأ: سعة المتسعة لا يمكن أن تكون صفراً.'
-      : `النتيجة: فرق الجهد \\(\\Delta V = \\frac{Q}{C} = \\frac{${q}}{${c}} = ${(q / c).toFixed(2)}\\) فولت.`;
-  } else if (hasQ && !hasC && hasV) {
-    out = v === 0 ? 'خطأ: فرق الجهد لا يمكن أن يكون صفراً.'
-      : `النتيجة: السعة \\(C = \\frac{Q}{\\Delta V} = \\frac{${q}}{${v}} = ${(q / v).toFixed(2)}\\) ميكروفاراد.`;
-  } else if (!hasQ && hasC && hasV) {
-    out = `النتيجة: الشحنة \\(Q = C \\times \\Delta V = ${c} \\times ${v} = ${(c * v).toFixed(2)}\\) ميكروكولوم.`;
-  } else {
-    out = 'الرجاء تعبئة خانتين بالضبط وترك الثالثة فارغة ليحسبها النظام.';
+  function reduced() { return !!(reduceMQ && reduceMQ.matches); }
+  function setClass(el, cls, on) { if (!el) return; if (on) el.classList.add(cls); else el.classList.remove(cls); }
+  function safe(fn) {
+    try { fn(); } catch (e) { if (window.console && console.warn) console.warn('[fezya]', e); }
   }
-
-  box.innerHTML = out;
-  box.classList.add('show');
-  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([box]);
-}
-
-// ---------- محوّل الوحدات ----------
-function convertUnits() {
-  const val = parseFloat(document.getElementById('unit-val').value);
-  const from = document.getElementById('unit-from').value;
-  const box = document.getElementById('unit-result');
-  if (isNaN(val)) {
-    box.textContent = 'الرجاء إدخال قيمة رقمية صحيحة.';
-    box.classList.add('show');
-    return;
+  function typeset(el) {
+    try {
+      if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+        return window.MathJax.typesetPromise([el]).catch(function () {});
+      }
+    } catch (e) {}
+    return null;
   }
-  const table = { micro: [1e-6, '10^{-6}'], nano: [1e-9, '10^{-9}'], pico: [1e-12, '10^{-12}'], milli: [1e-3, '10^{-3}'], mega: [1e6, '10^{6}'] };
-  const [mul, expo] = table[from] || [1, '1'];
-  box.innerHTML = `النتيجة العلمية: \\(${val} \\times ${expo} = ${(val * mul).toExponential(4)}\\) من الوحدة الأساسية.`;
-  box.classList.add('show');
-  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([box]);
-}
-// ---------- حماية من أي تجاوز أفقي (يمنع تصغير الصفحة على الهاتف) ----------
-function clampHorizontalOverflow() {
-  const vw = document.documentElement.clientWidth;
-  if (!vw) return;
+  function smooth() { return reduced() ? 'auto' : 'smooth'; }
 
-  const targets = document.querySelectorAll(
-    'main, section, .container, .header-in, .hero-stats, .grid-4, .grid-2, .grid-3, ' +
-    '.enc-layout, .enc-main, .enc-card, .enc-body, .enc-hero, .table-wrap, .math-block, ' +
-    '.enc-toc, .tool-card, .chapter-card'
-  );
+  /* ---------------- 1) قائمة الهاتف ---------------- */
+  safe(function () {
+    var btn = $('#navToggle'), nav = $('#mainNav');
+    if (!btn || !nav) return;
+    function set(open) {
+      setClass(nav, 'open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function (e) { e.stopPropagation(); set(!nav.classList.contains('open')); });
+    nav.addEventListener('click', function (e) { if (e.target && e.target.closest('a')) set(false); });
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('open')) return;
+      if (nav.contains(e.target) || btn.contains(e.target)) return;
+      set(false);
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1080) set(false); }, { passive: true });
+  });
 
-  targets.forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (r.width > vw + 1) {
-      el.style.maxWidth = '100%';
-      if (!el.classList.contains('math-block') && !el.classList.contains('table-wrap')) {
-        el.style.overflowX = 'auto';
+  /* ---------------- 2) حلقة التمرير الواحدة ---------------- */
+  safe(function () {
+    var header = $('.site-header'), toTop = $('#toTop'), bar = $('#readbar');
+    var ticking = false, headerOn = null, topOn = null;
+
+    function frame() {
+      ticking = false;
+      var y = window.pageYOffset || docEl.scrollTop || 0;
+
+      var h = y > 6;
+      if (h !== headerOn) { headerOn = h; setClass(header, 'scrolled', h); }
+
+      var t = y > 700;
+      if (t !== topOn) {
+        topOn = t;
+        setClass(toTop, 'show', t);
+        if (toTop) toTop.setAttribute('aria-hidden', t ? 'false' : 'true');
+      }
+
+      if (bar) {
+        var max = docEl.scrollHeight - window.innerHeight;
+        var p = max > 4 ? y / max : 0;
+        if (p < 0) p = 0; else if (p > 1) p = 1;
+        bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
       }
     }
+    function kick() { if (!ticking) { ticking = true; raf(frame); } }
+
+    window.addEventListener('scroll', kick, { passive: true });
+    window.addEventListener('resize', kick, { passive: true });
+    kick();
+
+    if (toTop) toTop.addEventListener('click', function () {
+      try { window.scrollTo({ top: 0, behavior: smooth() }); }
+      catch (e) { window.scrollTo(0, 0); }
+    });
   });
 
-  // محاولة أخيرة لمعالجة أي عنصر رياضي عريض
-  document.querySelectorAll('mjx-container').forEach(el => {
-    if (el.getBoundingClientRect().width > vw) {
-      el.style.maxWidth = '100%';
-      el.style.overflowX = 'auto';
-      el.style.overflowY = 'hidden';
+  /* ---------------- 3) تمييز القسم الحالي في الشريط ---------------- */
+  safe(function () {
+    if (!('IntersectionObserver' in window)) return;
+    var links = $$('.nav a');
+    var map = {};
+    var targets = [];
+    links.forEach(function (a) {
+      var id = (a.getAttribute('href') || '').slice(1);
+      if (!id) return;
+      var el = document.getElementById(id);
+      if (el) { map[id] = a; targets.push(el); }
+    });
+    if (!targets.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('active'); });
+        var a = map[en.target.id];
+        if (a) a.classList.add('active');
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    targets.forEach(function (t) { io.observe(t); });
+  });
+
+  /* ---------------- 4) الظهور الناعم عند التمرير ---------------- */
+  safe(function () {
+    var sels = [
+      '.hero .kicker', '.hero h2', '.hero > .container > p', '.hero-cta',
+      '.stat', '.sec-head', '.chapter-card', '.chip',
+      '.tool-card', '.tip', '.enc-hero', '.enc-bookhead',
+      '.enc-chapter-title', '.enc-card'
+    ];
+    var nodes = [];
+    sels.forEach(function (s) {
+      $$(s).forEach(function (el) {
+        if (el.closest('.enc-toc')) return;
+        el.classList.add('reveal');
+        nodes.push(el);
+      });
+    });
+
+    // تأخير متدرّج بسيط بين الأشقاء
+    var groups = [];
+    nodes.forEach(function (el) {
+      var p = el.parentElement;
+      if (!p) return;
+      var g = null;
+      for (var i = 0; i < groups.length; i++) if (groups[i].p === p) { g = groups[i]; break; }
+      if (!g) { g = { p: p, list: [] }; groups.push(g); }
+      g.list.push(el);
+    });
+    groups.forEach(function (g) {
+      g.list.forEach(function (el, i) {
+        el.style.setProperty('--d', Math.min(i, 6) * 45 + 'ms');
+      });
+    });
+
+    function revealAll() { nodes.forEach(function (el) { el.classList.add('in'); }); }
+
+    // ما يظهر في الشاشة الأولى يبدأ حركته فوراً بلا وميض
+    var vh = window.innerHeight || 800;
+    nodes.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < vh && r.bottom > -120) el.classList.add('in');
+    });
+
+    if (!('IntersectionObserver' in window) || reduced()) { revealAll(); return; }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.01 });
+
+    nodes.forEach(function (el) { if (!el.classList.contains('in')) io.observe(el); });
+
+    // ضمان الظهور عند الانتقال المباشر إلى لوحة عبر الرابط
+    function hashReveal() {
+      var id = (location.hash || '').slice(1);
+      if (!id) return;
+      var t = null;
+      try { t = document.getElementById(decodeURIComponent(id)); }
+      catch (e) { t = document.getElementById(id); }
+      if (!t) return;
+      t.classList.add('in');
+      $$('.reveal', t).forEach(function (el) { el.classList.add('in'); });
+      if (t.parentElement && t.parentElement.classList.contains('reveal')) t.parentElement.classList.add('in');
     }
+    window.addEventListener('hashchange', function () { setTimeout(hashReveal, 60); });
+    setTimeout(hashReveal, 120);
   });
 
-  document.documentElement.style.setProperty('--vw', vw + 'px');
-}
+  /* ---------------- 5) فهرس الموسوعة (درج الهاتف) ---------------- */
+  safe(function () {
+    var toc = $('#encToc'), btn = $('#encTocBtn');
+    if (!toc || !btn) return;
+    function set(open) {
+      setClass(toc, 'open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function (e) { e.stopPropagation(); set(!toc.classList.contains('open')); });
+    toc.addEventListener('click', function (e) {
+      if (e.target && e.target.closest('a') && window.innerWidth <= 1080) set(false);
+    });
+    document.addEventListener('click', function (e) {
+      if (!toc.classList.contains('open')) return;
+      if (toc.contains(e.target) || btn.contains(e.target)) return;
+      set(false);
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1080) set(false); }, { passive: true });
+  });
 
-document.addEventListener('DOMContentLoaded', () => setTimeout(clampHorizontalOverflow, 300));
-window.addEventListener('load', () => { setTimeout(clampHorizontalOverflow, 400); setTimeout(clampHorizontalOverflow, 1500); });
-window.addEventListener('resize', clampHorizontalOverflow);
+  /* ---------------- 6) تثبيت اللوحة الحالية في الفهرس ---------------- */
+  safe(function () {
+    if (!('IntersectionObserver' in window)) return;
+    var links = $$('.enc-toc a[href^="#"]');
+    if (!links.length) return;
+    var map = {};
+    links.forEach(function (a) { map[(a.getAttribute('href') || '').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('enc-active'); });
+        var a = map[en.target.id];
+        if (a) a.classList.add('enc-active');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    $$('.enc-card').forEach(function (c) { io.observe(c); });
+  });
 
+  /* ---------------- 7) البحث الفوري (بلا تقطيع) ---------------- */
+  safe(function () {
+    var search = $('#encSearch');
+    if (!search) return;
+    var cards = $$('.enc-card');
+    var chapters = $$('.enc-chapter');
+    var tocItems = $$('.enc-toc .enc-chap li');
+    var main = $('.enc-main');
+
+    var empty = document.createElement('div');
+    empty.className = 'enc-empty';
+    empty.hidden = true;
+    empty.textContent = '🔍 لا توجد نتائج مطابقة — جرّب كلمة أقصر مثل «متسعة» أو «RC» أو «عازل».';
+    if (main) { main.insertBefore(empty, main.firstChild); }
+
+    var wordRe;
+    try { wordRe = new RegExp('[^\\p{L}\\p{N}]+', 'gu'); }
+    catch (e) { wordRe = new RegExp('[^0-9a-zA-Z\\u0600-\\u06FF]+', 'g'); }
+
+    function norm(s) {
+      return (s || '').toLowerCase()
+        .replace(/[\u064B-\u0652\u0670\u0640]/g, '')
+        .replace(/[أإآٱ]/g, 'ا')
+        .replace(/ى/g, 'ي')
+        .replace(/ؤ/g, 'و')
+        .replace(/ئ/g, 'ي')
+        .replace(/ة/g, 'ه')
+        .replace(wordRe, ' ')
+        .trim();
+    }
+
+    var indexed = false;
+    function index() {
+      if (indexed) return;
+      cards.forEach(function (c) { c.fzText = norm(c.textContent); });
+      tocItems.forEach(function (li) { li.fzText = norm(li.textContent); });
+      indexed = true;
+    }
+
+    function apply() {
+      index();
+      var q = norm(search.value);
+      var tokens = q ? q.split(' ').filter(Boolean) : [];
+      var shown = 0;
+
+      cards.forEach(function (c) {
+        var hit = true;
+        for (var i = 0; i < tokens.length; i++) {
+          if (c.fzText.indexOf(tokens[i]) === -1) { hit = false; break; }
+        }
+        c.hidden = !hit;
+        if (hit) shown++;
+      });
+      chapters.forEach(function (b) {
+        var any = false;
+        var inner = b.querySelectorAll('.enc-card');
+        for (var i = 0; i < inner.length; i++) { if (!inner[i].hidden) { any = true; break; } }
+        b.hidden = !any;
+      });
+      tocItems.forEach(function (li) {
+        li.hidden = tokens.length > 0 && li.fzText.indexOf(tokens[0]) === -1;
+      });
+      empty.hidden = tokens.length === 0 || shown > 0;
+    }
+
+    var timer = 0;
+    search.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(apply, 130);
+    });
+    search.addEventListener('search', apply);
+    search.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { search.value = ''; apply(); }
+    });
+  });
+
+  /* ---------------- 8) حاسبة المتسعة ---------------- */
+  window.calcCapacitance = function () {
+    try {
+      var qEl = $('#calc-q'), cEl = $('#calc-c'), vEl = $('#calc-v'), box = $('#cap-result');
+      if (!qEl || !cEl || !vEl || !box) return;
+      var qStr = String(qEl.value || '').trim();
+      var cStr = String(cEl.value || '').trim();
+      var vStr = String(vEl.value || '').trim();
+      var q = parseFloat(qStr), c = parseFloat(cStr), v = parseFloat(vStr);
+      var hasQ = qStr !== '' && !isNaN(q);
+      var hasC = cStr !== '' && !isNaN(c);
+      var hasV = vStr !== '' && !isNaN(v);
+      var out = '';
+
+      if (hasQ && hasC && !hasV) {
+        out = c === 0 ? '⚠️ خطأ: سعة المتسعة لا يمكن أن تكون صفراً.'
+          : '🔋 النتيجة: فرق الجهد \\(' + '\\Delta V = \\frac{Q}{C} = \\frac{' + q + '}{' + c + '} = ' + (q / c).toFixed(2) + '\\) فولت.';
+      } else if (hasQ && !hasC && hasV) {
+        out = v === 0 ? '⚠️ خطأ: فرق الجهد لا يمكن أن يكون صفراً.'
+          : '🔋 النتيجة: السعة \\(' + 'C = \\frac{Q}{\\Delta V} = \\frac{' + q + '}{' + v + '} = ' + (q / v).toFixed(2) + '\\) ميكروفاراد.';
+      } else if (!hasQ && hasC && hasV) {
+        out = '🔋 النتيجة: الشحنة \\(' + 'Q = C \\times \\Delta V = ' + c + ' \\times ' + v + ' = ' + (c * v).toFixed(2) + '\\) ميكروكولوم.';
+      } else {
+        out = '📝 الرجاء تعبئة خانتين بالضبط وترك الثالثة فارغة ليحسبها النظام.';
+      }
+      box.innerHTML = out;
+      box.classList.remove('show');
+      void box.offsetWidth;
+      box.classList.add('show');
+      typeset(box);
+    } catch (e) { if (window.console && console.warn) console.warn('[fezya]', e); }
+  };
+
+  /* ---------------- 9) محوّل الوحدات ---------------- */
+  window.convertUnits = function () {
+    try {
+      var valEl = $('#unit-val'), fromEl = $('#unit-from'), box = $('#unit-result');
+      if (!valEl || !fromEl || !box) return;
+      var val = parseFloat(valEl.value);
+      if (isNaN(val)) {
+        box.textContent = '⚠️ الرجاء إدخال قيمة رقمية صحيحة.';
+        box.classList.remove('show'); void box.offsetWidth; box.classList.add('show');
+        return;
+      }
+      var table = {
+        micro: [1e-6, '10^{-6}'], nano: [1e-9, '10^{-9}'], pico: [1e-12, '10^{-12}'],
+        milli: [1e-3, '10^{-3}'], mega: [1e6, '10^{6}']
+      };
+      var row = table[fromEl.value] || [1, '1'];
+      box.innerHTML = '🔁 النتيجة العلمية: \\(' + val + ' \\times ' + row[1] + ' = ' + (val * row[0]).toExponential(4) + '\\) من الوحدة الأساسية.';
+      box.classList.remove('show');
+      void box.offsetWidth;
+      box.classList.add('show');
+      typeset(box);
+    } catch (e) { if (window.console && console.warn) console.warn('[fezya]', e); }
+  };
+
+  /* ---------------- 10) Enter واختيار سريع في الحاسبات ---------------- */
+  safe(function () {
+    ['calc-q', 'calc-c', 'calc-v'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); window.calcCapacitance(); }
+      });
+    });
+    var unitVal = document.getElementById('unit-val');
+    var unitFrom = document.getElementById('unit-from');
+    if (unitVal) unitVal.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); window.convertUnits(); }
+    });
+    if (unitFrom) unitFrom.addEventListener('change', function () { window.convertUnits(); });
+  });
+
+  /* ---------------- 11) جاهزية الصيغ الرياضية ---------------- */
+  safe(function () {
+    var done = false;
+    function mark() { if (done) return; done = true; docEl.classList.add('math-ready'); }
+    setTimeout(mark, 6000); // صمام أمان: لا تبقى أي صيغة مخفية أبداً
+    (function wait(n) {
+      if (done || n > 50) return;
+      var mj = window.MathJax;
+      if (mj && mj.startup && mj.startup.promise && typeof mj.startup.promise.then === 'function') {
+        mj.startup.promise.then(mark, mark);
+        return;
+      }
+      setTimeout(function () { wait(n + 1); }, 120);
+    })(0);
+  });
+
+  /* ---------------- 12) عدّاد الأرقام عند الظهور ---------------- */
+  safe(function () {
+    if (!('IntersectionObserver' in window) || reduced()) return;
+    var nums = $$('.stat b, .enc-stat b');
+    if (!nums.length) return;
+
+    function animate(el) {
+      var raw = el.textContent;
+      var target = parseInt(raw.replace(/[^0-9]/g, ''), 10);
+      if (!target || isNaN(target) || target > 100000) return;
+      var suffix = raw.replace(/[0-9]/g, '');
+      var dur = 850, start = 0;
+      function tick(ts) {
+        if (!start) start = ts;
+        var t = Math.min(1, (ts - start) / dur);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (t < 1) raf(tick); else el.textContent = target + suffix;
+      }
+      raf(tick);
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        animate(en.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.4 });
+    nums.forEach(function (el) { io.observe(el); });
+  });
+
+  /* ---------------- 13) حماية العرض الأفقي (مضبوطة الأداء) ---------------- */
+  safe(function () {
+    var SEL = 'main, section, .container, .header-in, .hero-stats, .grid-4, .grid-2, .grid-3, ' +
+              '.enc-layout, .enc-main, .enc-card, .enc-body, .enc-hero, .table-wrap, .math-block, ' +
+              '.enc-toc, .tool-card, .chapter-card';
+    var nodes = null, timer = 0, lastW = -1;
+
+    function run() {
+      var vw = docEl.clientWidth;
+      if (!vw) return;
+      lastW = vw;
+      docEl.style.setProperty('--vw', vw + 'px');
+      if (!nodes) nodes = $$(SEL);
+
+      for (var i = 0; i < nodes.length; i++) {
+        var el = nodes[i];
+        if (el.getBoundingClientRect().width > vw + 1) {
+          el.style.maxWidth = '100%';
+          if (!el.classList.contains('math-block') && !el.classList.contains('table-wrap')) {
+            el.style.overflowX = 'auto';
+          }
+        }
+      }
+
+      var maths = $$('mjx-container');
+      for (var j = 0; j < maths.length; j++) {
+        if (maths[j].getBoundingClientRect().width > vw) {
+          maths[j].style.maxWidth = '100%';
+          maths[j].style.overflowX = 'auto';
+          maths[j].style.overflowY = 'hidden';
+        }
+      }
+    }
+
+    function schedule(delay) {
+      clearTimeout(timer);
+      timer = setTimeout(function () { raf(run); }, delay || 160);
+    }
+
+    window.clampHorizontalOverflow = run;
+    document.addEventListener('DOMContentLoaded', function () { schedule(250); });
+    window.addEventListener('load', function () {
+      schedule(300);
+      setTimeout(function () { schedule(0); }, 1300);
+    });
+    window.addEventListener('resize', function () {
+      if (Math.abs(docEl.clientWidth - lastW) < 2) return;
+      schedule(200);
+    }, { passive: true });
+  });
+})();
 </script>
 </body>
 </html>
