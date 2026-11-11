@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 <title>بوابة قوانين الفيزياء | ملخصات وقوانين السادس العلمي كاملة</title>
 <meta name="description" content="كل قوانين الفيزياء للسادس العلمي: فصول الموقع التفاعلية، حاسبات ذكية، وموسوعة نصية كاملة تفريغ 81 لوحة من ملخصي الأستاذ مؤيد سليم والأستاذ علي السوداني.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,15 +58,16 @@ img,svg{max-width:100%}
   position:sticky;top:0;z-index:60;background:rgba(8,14,26,.88);
   backdrop-filter:blur(14px);border-bottom:1px solid var(--line);
 }
-.header-in{display:flex;align-items:center;gap:16px;height:74px}
+.header-in{display:flex;align-items:center;gap:16px;height:74px;min-width:0;max-width:100%}
 .brand{display:flex;align-items:center;gap:11px;min-width:0}
 .brand-logo{
   width:42px;height:42px;border-radius:13px;display:grid;place-items:center;color:#fff;font-size:19px;
   background:linear-gradient(135deg,#2563eb,#0ea5e9);box-shadow:0 10px 24px rgba(37,99,235,.35);flex:0 0 auto;
 }
-.brand-text h1{margin:0;font-size:17px;font-weight:800;color:#fff;white-space:nowrap}
-.brand-text p{margin:0;font-size:11.5px;color:var(--muted);white-space:nowrap}
-.nav{margin-inline-start:auto;display:flex;align-items:center;gap:4px}
+.brand-text{min-width:0;overflow:hidden}
+.brand-text h1{margin:0;font-size:17px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-text p{margin:0;font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav{margin-inline-start:auto;display:flex;align-items:center;gap:4px;flex-wrap:nowrap}
 .nav a{
   padding:9px 13px;border-radius:10px;font-size:14px;font-weight:700;color:#c2d0e6;
   text-decoration:none;transition:background .18s,color .18s;
@@ -306,58 +307,118 @@ img,svg{max-width:100%}
 .enc-body blockquote.callout p:last-child{margin-bottom:0}
 
 /* ---------------- الفوتر والعناصر العائمة ---------------- */
-.site-footer{border-top:1px solid var(--line);background:#060b14;padding:34px 0;color:var(--muted-2);font-size:12.5px}
+.site-footer{border-top:1px solid var(--line);background:#060b14;padding:34px 0;color:var(--muted-2);font-size:12.5px;max-width:100%}
 .footer-in{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .footer-links{display:flex;gap:16px;flex-wrap:wrap}
 .footer-links a{color:#a8b8d1;font-size:12.5px}
 #toTop{
-  position:fixed;inset-inline-start:22px;bottom:22px;z-index:55;width:46px;height:46px;border-radius:50%;
+  position:fixed;left:18px;right:auto;bottom:22px;z-index:55;width:46px;height:46px;border-radius:50%;
   display:none;place-items:center;border:1px solid var(--line);background:var(--surface2);color:#dbe7fb;
   font-size:16px;cursor:pointer;box-shadow:var(--shadow);
 }
 #toTop.show{display:grid}
 
-/* ---------------- استجابة الشاشات ---------------- */
+/* ============================================================
+   الاستجابة وحماية العرض الأفقي (موبايل أولاً)
+   ============================================================ */
+html{overflow-x:hidden;width:100%}
+body{overflow-x:hidden;max-width:100%;width:100%}
+main,.enc-card,.enc-body,.enc-chapter,.enc-layout{max-width:100%}
+main,.enc-card,.enc-body{overflow-x:clip}
+img,svg,table{max-width:100%}
+.enc-body p,.enc-body li,.enc-body td,.enc-body th{overflow-wrap:break-word}
+.table-wrap{max-width:100%}
+mjx-container{max-width:100%}
+mjx-container[jax="CHTML"][display="true"]{overflow-x:auto;overflow-y:hidden}
+
 @media (max-width:1080px){
-  .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .nav{
-    position:fixed;inset-inline-end:0;top:74px;width:min(320px,86vw);height:calc(100vh - 74px);
-    flex-direction:column;align-items:stretch;gap:6px;background:#0b1322;border-inline-start:1px solid var(--line);
-    padding:16px;transform:translateX(110%);transition:transform .22s ease;z-index:59;
-  }
-  .nav.open{transform:translateX(0)}
-  .nav a{padding:12px 14px;font-size:15px}
+  .header-in{height:66px;gap:10px}
   #navToggle{display:grid;place-items:center;margin-inline-start:auto}
-  .header-cta{display:none}
-  .enc-layout{flex-direction:column}
-  .enc-toc{
-    position:fixed;inset-inline-end:0;top:0;height:100vh;max-height:100vh;width:min(340px,88vw);z-index:70;
-    transform:translateX(110%);transition:transform .22s ease;border-radius:0;box-shadow:-10px 0 40px rgba(0,0,0,.55);
+  .site-header{width:100%}
+  .nav{
+    position:absolute;top:100%;left:0;right:0;z-index:58;display:none;flex-direction:column;align-items:stretch;
+    gap:4px;padding:10px;margin:0;background:#0b1322;border-bottom:1px solid var(--line);
+    max-height:calc(100vh - 66px);overflow:auto;box-shadow:0 18px 30px rgba(0,0,0,.45);
   }
-  .enc-toc.enc-open{transform:translateX(0)}
+  .nav.open{display:flex}
+  .nav a{padding:12px 14px;font-size:15px}
+  .header-cta{display:none}
+  .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .enc-layout{display:block}
+  .enc-toc{position:static;width:auto;flex:none;max-height:none;margin-bottom:16px;display:none}
+  .enc-toc.open{display:block}
   .enc-tocbtn{display:inline-flex;align-items:center;gap:8px}
 }
-@media (max-width:760px){
-  .section{padding:52px 0}
-  .hero{padding:56px 0 46px}
-  .grid-2,.grid-3{grid-template-columns:1fr}
-  .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+@media (max-width:820px){
+  body{font-size:15.5px;line-height:1.85}
+  .brand-text p{display:none}
+  .site-header .container{padding:0 12px}
+  .hero h2,.sec-title{overflow-wrap:break-word}
+  main,.section,.hero,.site-header,.site-footer{max-width:100%;overflow-x:clip}
+  .container{padding:0 14px}
+  .section{padding:46px 0}
+  .sec-head{margin-bottom:28px}
+  .hero{padding:44px 0 40px}
+  .hero p{font-size:15px}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{justify-content:center;width:100%}
+  .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}
+  .stat{padding:12px 8px}
+  .stat b{font-size:20px}
+  .chapter-card{padding:15px}
+  .chapter-card h3{font-size:15px}
+  .chapter-card .c-desc{font-size:12.5px}
+  .tool-card{padding:16px}
   .fields.f3,.fields.f13{grid-template-columns:1fr}
-  .enc-card{padding:16px}
+  .tip{padding:20px 16px}
+  .enc-hero{padding:18px 16px;border-radius:18px}
+  .enc-hero>p{font-size:14px}
+  .enc-stats{gap:8px}
+  .enc-stat{flex:1;min-width:calc(50% - 4px);padding:9px 12px}
+  .enc-sources{gap:10px}
+  .enc-src-card{padding:13px 14px}
+  .enc-bookhead h3{font-size:16.5px}
+  .enc-chapter-title{font-size:15.5px;padding:10px 13px;gap:8px}
+  .enc-card{padding:14px;border-radius:15px}
+  .enc-card>header{flex-wrap:wrap;gap:8px}
+  .enc-card h5{font-size:15.5px}
+  .enc-meta{font-size:11px}
   .enc-pills{margin-inline-start:0;width:100%}
-  .enc-card>header{flex-wrap:wrap}
+  .enc-body p,.enc-body li{font-size:14.5px}
+  .enc-body h2,.enc-body h3,.enc-body h4,.enc-body h5,.enc-body h6{font-size:14.5px;margin:13px 0 6px}
+  .enc-body h2{font-size:15.5px}
+  .enc-body ul,.enc-body ol{padding-inline-start:18px}
+  .math-block{padding:8px 6px;margin:10px 0;border-radius:9px}
+  .math-inline{max-width:100%}
+  .enc-body .table-wrap{border-radius:9px}
+  .enc-body table{font-size:12px;min-width:100%}
+  .enc-body thead th{padding:7px 8px;white-space:normal}
+  .enc-body tbody td{padding:7px 8px}
+  .footer-in{flex-direction:column;text-align:center;gap:10px}
+  #toTop{left:12px;bottom:12px;width:42px;height:42px}
 }
+
 @media (max-width:520px){
   .grid-4{grid-template-columns:1fr}
   .brand-text p{display:none}
+  .brand-text h1{font-size:15px}
+  .brand-logo{width:36px;height:36px;font-size:16px;border-radius:11px}
+  .sec-title{font-size:21px}
+  .kicker{font-size:11px;padding:4px 10px}
+  .enc-stat b{font-size:18px}
+  .enc-card{padding:12px}
+  .enc-badge{display:none}
 }
 
 /* ---------------- الطباعة ---------------- */
 @media print{
   body{background:#fff;color:#000;font-size:12pt}
-  .site-header,#navToggle,.header-cta,.hero-cta,#toTop,.site-footer,.enc-toc,.enc-tocbtn,
+  .site-header,#navToggle,.nav,.header-cta,.hero-cta,#toTop,.site-footer,.enc-toc,.enc-tocbtn,
   #chapters,#tools,#tips,.hero,.hero-stats,.enc-sources,.enc-note{display:none !important}
   .section,.hero,.enc-section{padding:0;background:#fff;border:0}
+  .enc-layout{display:block}
   .enc-hero{border-color:#bbb;background:#fff}
   .enc-hero h2,.enc-hero>p{color:#000}
   .enc-card{border:1px solid #bbb;box-shadow:none;background:#fff;color:#000;break-inside:avoid}
@@ -369,7 +430,6 @@ img,svg{max-width:100%}
   .enc-chapter-title{background:#eee;color:#000;border-color:#bbb}
   .enc-bookhead h3{color:#000}
 }
-
 </style>
 </head>
 <body>
@@ -884,9 +944,12 @@ toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smoot
 const encToc = document.getElementById('encToc');
 const encTocBtn = document.getElementById('encTocBtn');
 if (encTocBtn && encToc) {
-  encTocBtn.addEventListener('click', () => encToc.classList.toggle('enc-open'));
+  encTocBtn.addEventListener('click', () => {
+    const open = encToc.classList.toggle('open');
+    encTocBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
   encToc.addEventListener('click', e => {
-    if (e.target.closest('a') && window.innerWidth <= 1080) encToc.classList.remove('enc-open');
+    if (e.target.closest('a') && window.innerWidth <= 1080) encToc.classList.remove('open');
   });
 }
 
@@ -967,6 +1030,43 @@ function convertUnits() {
   box.classList.add('show');
   if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([box]);
 }
+// ---------- حماية من أي تجاوز أفقي (يمنع تصغير الصفحة على الهاتف) ----------
+function clampHorizontalOverflow() {
+  const vw = document.documentElement.clientWidth;
+  if (!vw) return;
+
+  const targets = document.querySelectorAll(
+    'main, section, .container, .header-in, .hero-stats, .grid-4, .grid-2, .grid-3, ' +
+    '.enc-layout, .enc-main, .enc-card, .enc-body, .enc-hero, .table-wrap, .math-block, ' +
+    '.enc-toc, .tool-card, .chapter-card'
+  );
+
+  targets.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.width > vw + 1) {
+      el.style.maxWidth = '100%';
+      if (!el.classList.contains('math-block') && !el.classList.contains('table-wrap')) {
+        el.style.overflowX = 'auto';
+      }
+    }
+  });
+
+  // محاولة أخيرة لمعالجة أي عنصر رياضي عريض
+  document.querySelectorAll('mjx-container').forEach(el => {
+    if (el.getBoundingClientRect().width > vw) {
+      el.style.maxWidth = '100%';
+      el.style.overflowX = 'auto';
+      el.style.overflowY = 'hidden';
+    }
+  });
+
+  document.documentElement.style.setProperty('--vw', vw + 'px');
+}
+
+document.addEventListener('DOMContentLoaded', () => setTimeout(clampHorizontalOverflow, 300));
+window.addEventListener('load', () => { setTimeout(clampHorizontalOverflow, 400); setTimeout(clampHorizontalOverflow, 1500); });
+window.addEventListener('resize', clampHorizontalOverflow);
+
 </script>
 </body>
 </html>
